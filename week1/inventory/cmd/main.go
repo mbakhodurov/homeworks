@@ -20,6 +20,7 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/reflection"
 	"google.golang.org/grpc/status"
+	"google.golang.org/protobuf/types/known/emptypb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
@@ -33,6 +34,122 @@ type InventoryService struct {
 	mu sync.RWMutex
 
 	inventories map[string]*inventory_v1.Part
+}
+
+func (i *InventoryService) DeletePart(_ context.Context, req *inventory_v1.DeletePartRequest) (*emptypb.Empty, error) {
+	i.mu.Lock()
+	defer i.mu.Unlock()
+
+	inventory, ok := i.inventories[req.GetUuid()]
+	if !ok {
+		return nil, status.Errorf(codes.NotFound, "Part with uuid %s not found", req.GetUuid())
+	}
+
+	inventory.DeletedAt = timestamppb.New(time.Now())
+
+	return &emptypb.Empty{}, nil
+}
+
+func (i *InventoryService) ListParts(_ context.Context, rq *inventory_v1.ListPartsRequest) (*inventory_v1.ListPartsResponse, error) {
+	i.mu.RLock()
+	defer i.mu.RUnlock()
+
+	filter := rq.GetFilter()
+	result := []*inventory_v1.Part{}
+
+	for _, part := range i.inventories {
+		if matchPart(part, filter) {
+			result = append(result, part)
+		}
+	}
+
+	return &inventory_v1.ListPartsResponse{
+		Part:       result,
+		TotalCount: int64(len(result)),
+	}, nil
+}
+
+func matchPart(part *inventory_v1.Part, filter *inventory_v1.PartsFilter) bool {
+	if filter == nil {
+		return true
+	}
+
+	// UUIDs
+	if len(filter.Uuids) > 0 {
+		found := false
+		for _, u := range filter.Uuids {
+			if part.Uuid == u {
+				found = true
+				break
+			}
+		}
+		if !found {
+			return false
+		}
+	}
+
+	// Names
+	if len(filter.Names) > 0 {
+		found := false
+		for _, n := range filter.Names {
+			if part.Info.Name == n {
+				found = true
+				break
+			}
+		}
+		if !found {
+			return false
+		}
+	}
+
+	// Categories
+	if len(filter.Categories) > 0 {
+		found := false
+		for _, c := range filter.Categories {
+			if part.Info.Category == c {
+				found = true
+				break
+			}
+		}
+		if !found {
+			return false
+		}
+	}
+
+	// Manufacturer countries
+	if len(filter.ManufacturerCountries) > 0 {
+		found := false
+		for _, country := range filter.ManufacturerCountries {
+			if part.Info.Manufacturer.Country == country {
+				found = true
+				break
+			}
+		}
+		if !found {
+			return false
+		}
+	}
+
+	// Tags
+	if len(filter.Tags) > 0 {
+		found := false
+		for _, tag := range filter.Tags {
+			for _, pt := range part.Info.Tags {
+				if pt == tag {
+					found = true
+					break
+				}
+			}
+			if found {
+				break
+			}
+		}
+		if !found {
+			return false
+		}
+	}
+
+	return true
 }
 
 func (i *InventoryService) GetPart(ctx context.Context, rq *inventory_v1.GetPartRequest) (*inventory_v1.GetPartResponse, error) {
@@ -76,6 +193,23 @@ func (i *InventoryService) CreateParts(ctx context.Context, rq *inventory_v1.Cre
 
 	return &inventory_v1.CreatePartsResponse{
 		Uuid: newUUID,
+	}, nil
+}
+
+func (i *InventoryService) GetAllPart(ctx context.Context, rq *inventory_v1.GetAllPartRequest) (*inventory_v1.GetAllPartResponse, error) {
+	i.mu.Lock()
+	defer i.mu.Unlock()
+
+	result := []*inventory_v1.Part{}
+	if len(i.inventories) == 0 {
+		return nil, status.Error(codes.NotFound, "Inventories are empty")
+	}
+	for _, v := range i.inventories {
+		result = append(result, v)
+	}
+	return &inventory_v1.GetAllPartResponse{
+		Part:       result,
+		TotalCount: int64(len(result)),
 	}, nil
 }
 

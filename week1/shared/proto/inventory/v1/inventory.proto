@@ -16,6 +16,11 @@ service InventoryService{
             get: "/api/v1/inventory/{uuid}"
         };
     }
+    rpc DeletePart(DeletePartRequest) returns (google.protobuf.Empty){
+        option(google.api.http)={
+            delete: "/api/v1/inventory/{uuid}"
+        };
+    }
     rpc ListParts(ListPartsRequest) returns (ListPartsResponse) {
         option (google.api.http) = {
             get: "/api/v1/inventory"
@@ -33,6 +38,10 @@ service InventoryService{
             get: "/api/v1/inventories"
         };
     }
+}
+
+message DeletePartRequest {
+    string uuid = 1;
 }
 
 message GetAllPartRequest{}

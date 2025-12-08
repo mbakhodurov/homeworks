@@ -11,6 +11,7 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -20,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion9
 
 const (
 	InventoryService_GetPart_FullMethodName     = "/inventory.v1.InventoryService/GetPart"
+	InventoryService_DeletePart_FullMethodName  = "/inventory.v1.InventoryService/DeletePart"
 	InventoryService_ListParts_FullMethodName   = "/inventory.v1.InventoryService/ListParts"
 	InventoryService_CreateParts_FullMethodName = "/inventory.v1.InventoryService/CreateParts"
 	InventoryService_GetAllPart_FullMethodName  = "/inventory.v1.InventoryService/GetAllPart"
@@ -30,6 +32,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type InventoryServiceClient interface {
 	GetPart(ctx context.Context, in *GetPartRequest, opts ...grpc.CallOption) (*GetPartResponse, error)
+	DeletePart(ctx context.Context, in *DeletePartRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	ListParts(ctx context.Context, in *ListPartsRequest, opts ...grpc.CallOption) (*ListPartsResponse, error)
 	CreateParts(ctx context.Context, in *CreatePartsRequest, opts ...grpc.CallOption) (*CreatePartsResponse, error)
 	GetAllPart(ctx context.Context, in *GetAllPartRequest, opts ...grpc.CallOption) (*GetAllPartResponse, error)
@@ -47,6 +50,16 @@ func (c *inventoryServiceClient) GetPart(ctx context.Context, in *GetPartRequest
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPartResponse)
 	err := c.cc.Invoke(ctx, InventoryService_GetPart_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *inventoryServiceClient) DeletePart(ctx context.Context, in *DeletePartRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, InventoryService_DeletePart_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,6 +101,7 @@ func (c *inventoryServiceClient) GetAllPart(ctx context.Context, in *GetAllPartR
 // for forward compatibility.
 type InventoryServiceServer interface {
 	GetPart(context.Context, *GetPartRequest) (*GetPartResponse, error)
+	DeletePart(context.Context, *DeletePartRequest) (*emptypb.Empty, error)
 	ListParts(context.Context, *ListPartsRequest) (*ListPartsResponse, error)
 	CreateParts(context.Context, *CreatePartsRequest) (*CreatePartsResponse, error)
 	GetAllPart(context.Context, *GetAllPartRequest) (*GetAllPartResponse, error)
@@ -103,6 +117,9 @@ type UnimplementedInventoryServiceServer struct{}
 
 func (UnimplementedInventoryServiceServer) GetPart(context.Context, *GetPartRequest) (*GetPartResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPart not implemented")
+}
+func (UnimplementedInventoryServiceServer) DeletePart(context.Context, *DeletePartRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeletePart not implemented")
 }
 func (UnimplementedInventoryServiceServer) ListParts(context.Context, *ListPartsRequest) (*ListPartsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListParts not implemented")
@@ -148,6 +165,24 @@ func _InventoryService_GetPart_Handler(srv interface{}, ctx context.Context, dec
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InventoryServiceServer).GetPart(ctx, req.(*GetPartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InventoryService_DeletePart_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeletePartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InventoryServiceServer).DeletePart(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InventoryService_DeletePart_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InventoryServiceServer).DeletePart(ctx, req.(*DeletePartRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -216,6 +251,10 @@ var InventoryService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPart",
 			Handler:    _InventoryService_GetPart_Handler,
+		},
+		{
+			MethodName: "DeletePart",
+			Handler:    _InventoryService_DeletePart_Handler,
 		},
 		{
 			MethodName: "ListParts",

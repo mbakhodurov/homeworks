@@ -1,0 +1,9 @@
+type: string
+description: Статус заказа
+enum:
+  - UNKNOWN
+  - PENDING_PAYMENT
+  - PAID
+  - CANCELLED
+  - COMPLETED
+example: PAID

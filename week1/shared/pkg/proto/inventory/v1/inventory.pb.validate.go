@@ -35,6 +35,110 @@ var (
 	_ = sort.Sort
 )
 
+// Validate checks the field values on DeletePartRequest with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *DeletePartRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on DeletePartRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// DeletePartRequestMultiError, or nil if none found.
+func (m *DeletePartRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *DeletePartRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Uuid
+
+	if len(errors) > 0 {
+		return DeletePartRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// DeletePartRequestMultiError is an error wrapping multiple validation errors
+// returned by DeletePartRequest.ValidateAll() if the designated constraints
+// aren't met.
+type DeletePartRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DeletePartRequestMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DeletePartRequestMultiError) AllErrors() []error { return m }
+
+// DeletePartRequestValidationError is the validation error returned by
+// DeletePartRequest.Validate if the designated constraints aren't met.
+type DeletePartRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DeletePartRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DeletePartRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DeletePartRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DeletePartRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DeletePartRequestValidationError) ErrorName() string {
+	return "DeletePartRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e DeletePartRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDeletePartRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DeletePartRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DeletePartRequestValidationError{}
+
 // Validate checks the field values on GetAllPartRequest with the rules defined
 // in the proto definition for this message. If any rules are violated, the
 // first error encountered is returned, or nil if there are no violations.
