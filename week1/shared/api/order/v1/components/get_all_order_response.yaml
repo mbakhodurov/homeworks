@@ -1,0 +1,8 @@
+type: object
+required:
+  - order_dto
+properties:
+  order_dto:
+    type: array
+    items:
+      $ref: ./order_dto.yaml

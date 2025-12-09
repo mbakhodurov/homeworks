@@ -42,6 +42,55 @@ func (s *BadRequestError) SetMessage(val string) {
 
 func (*BadRequestError) createOrderRes() {}
 
+// Ref: #/components/schemas/cancel_order_response
+type CancelOrderResponse struct {
+	// Успешно обнулен заказ.
+	Properties OptString `json:"properties"`
+}
+
+// GetProperties returns the value of Properties.
+func (s *CancelOrderResponse) GetProperties() OptString {
+	return s.Properties
+}
+
+// SetProperties sets the value of Properties.
+func (s *CancelOrderResponse) SetProperties(val OptString) {
+	s.Properties = val
+}
+
+func (*CancelOrderResponse) cancelOrderRes() {}
+
+// Ref: #/components/schemas/conflict_error
+type ConflictError struct {
+	// HTTP-код ошибки.
+	Code int `json:"code"`
+	// Описание ошибки.
+	Message string `json:"message"`
+}
+
+// GetCode returns the value of Code.
+func (s *ConflictError) GetCode() int {
+	return s.Code
+}
+
+// GetMessage returns the value of Message.
+func (s *ConflictError) GetMessage() string {
+	return s.Message
+}
+
+// SetCode sets the value of Code.
+func (s *ConflictError) SetCode(val int) {
+	s.Code = val
+}
+
+// SetMessage sets the value of Message.
+func (s *ConflictError) SetMessage(val string) {
+	s.Message = val
+}
+
+func (*ConflictError) cancelOrderRes()  {}
+func (*ConflictError) paymentOrderRes() {}
+
 // Ref: #/components/schemas/create_order_request
 type CreateOrderRequest struct {
 	// Идентификатор заказа.
@@ -154,6 +203,23 @@ func (s *GenericErrorStatusCode) SetResponse(val GenericError) {
 	s.Response = val
 }
 
+// Ref: #/components/schemas/get_all_order_response
+type GetAllOrderResponse struct {
+	OrderDto []OrderDto `json:"order_dto"`
+}
+
+// GetOrderDto returns the value of OrderDto.
+func (s *GetAllOrderResponse) GetOrderDto() []OrderDto {
+	return s.OrderDto
+}
+
+// SetOrderDto sets the value of OrderDto.
+func (s *GetAllOrderResponse) SetOrderDto(val []OrderDto) {
+	s.OrderDto = val
+}
+
+func (*GetAllOrderResponse) getAllOrdersRes() {}
+
 // Ref: #/components/schemas/get_order_response
 type GetOrderResponse struct {
 	OrderDto OrderDto `json:"order_dto"`
@@ -199,8 +265,11 @@ func (s *InternalServerError) SetMessage(val string) {
 	s.Message = val
 }
 
+func (*InternalServerError) cancelOrderRes()  {}
 func (*InternalServerError) createOrderRes()  {}
+func (*InternalServerError) getAllOrdersRes() {}
 func (*InternalServerError) getOrderByIdRes() {}
+func (*InternalServerError) paymentOrderRes() {}
 
 // NewNilOrderDtoPaymentMethod returns new NilOrderDtoPaymentMethod with value set to v.
 func NewNilOrderDtoPaymentMethod(v OrderDtoPaymentMethod) NilOrderDtoPaymentMethod {
@@ -275,7 +344,10 @@ func (s *NotFoundError) SetMessage(val string) {
 	s.Message = val
 }
 
+func (*NotFoundError) cancelOrderRes()  {}
+func (*NotFoundError) getAllOrdersRes() {}
 func (*NotFoundError) getOrderByIdRes() {}
+func (*NotFoundError) paymentOrderRes() {}
 
 // NewOptInt returns new OptInt with value set to v.
 func NewOptInt(v int) OptInt {
@@ -640,6 +712,103 @@ func (s *OrderStatus) UnmarshalText(data []byte) error {
 		return nil
 	case OrderStatusCOMPLETED:
 		*s = OrderStatusCOMPLETED
+		return nil
+	default:
+		return errors.Errorf("invalid value: %q", data)
+	}
+}
+
+// Ref: #/components/schemas/pay_order_request
+type PayOrderRequest struct {
+	PaymentMethod PaymentMethod `json:"payment_method"`
+}
+
+// GetPaymentMethod returns the value of PaymentMethod.
+func (s *PayOrderRequest) GetPaymentMethod() PaymentMethod {
+	return s.PaymentMethod
+}
+
+// SetPaymentMethod sets the value of PaymentMethod.
+func (s *PayOrderRequest) SetPaymentMethod(val PaymentMethod) {
+	s.PaymentMethod = val
+}
+
+// Ref: #/components/schemas/pay_order_response
+type PayOrderResponse struct {
+	// Идентификатор транзакции.
+	OrderUUID OptString `json:"order_uuid"`
+}
+
+// GetOrderUUID returns the value of OrderUUID.
+func (s *PayOrderResponse) GetOrderUUID() OptString {
+	return s.OrderUUID
+}
+
+// SetOrderUUID sets the value of OrderUUID.
+func (s *PayOrderResponse) SetOrderUUID(val OptString) {
+	s.OrderUUID = val
+}
+
+func (*PayOrderResponse) paymentOrderRes() {}
+
+// Способ оплаты.
+// Ref: #/components/schemas/payment_method
+type PaymentMethod string
+
+const (
+	PaymentMethodUNKNOWN       PaymentMethod = "UNKNOWN"
+	PaymentMethodCARD          PaymentMethod = "CARD"
+	PaymentMethodSBP           PaymentMethod = "SBP"
+	PaymentMethodCREDITCARD    PaymentMethod = "CREDIT_CARD"
+	PaymentMethodINVESTORMONEY PaymentMethod = "INVESTOR_MONEY"
+)
+
+// AllValues returns all PaymentMethod values.
+func (PaymentMethod) AllValues() []PaymentMethod {
+	return []PaymentMethod{
+		PaymentMethodUNKNOWN,
+		PaymentMethodCARD,
+		PaymentMethodSBP,
+		PaymentMethodCREDITCARD,
+		PaymentMethodINVESTORMONEY,
+	}
+}
+
+// MarshalText implements encoding.TextMarshaler.
+func (s PaymentMethod) MarshalText() ([]byte, error) {
+	switch s {
+	case PaymentMethodUNKNOWN:
+		return []byte(s), nil
+	case PaymentMethodCARD:
+		return []byte(s), nil
+	case PaymentMethodSBP:
+		return []byte(s), nil
+	case PaymentMethodCREDITCARD:
+		return []byte(s), nil
+	case PaymentMethodINVESTORMONEY:
+		return []byte(s), nil
+	default:
+		return nil, errors.Errorf("invalid value: %q", s)
+	}
+}
+
+// UnmarshalText implements encoding.TextUnmarshaler.
+func (s *PaymentMethod) UnmarshalText(data []byte) error {
+	switch PaymentMethod(data) {
+	case PaymentMethodUNKNOWN:
+		*s = PaymentMethodUNKNOWN
+		return nil
+	case PaymentMethodCARD:
+		*s = PaymentMethodCARD
+		return nil
+	case PaymentMethodSBP:
+		*s = PaymentMethodSBP
+		return nil
+	case PaymentMethodCREDITCARD:
+		*s = PaymentMethodCREDITCARD
+		return nil
+	case PaymentMethodINVESTORMONEY:
+		*s = PaymentMethodINVESTORMONEY
 		return nil
 	default:
 		return errors.Errorf("invalid value: %q", data)

@@ -15,6 +15,71 @@ import (
 	"github.com/ogen-go/ogen/validate"
 )
 
+// CancelOrderParams is parameters of CancelOrder operation.
+type CancelOrderParams struct {
+	OrderUUID string
+}
+
+func unpackCancelOrderParams(packed middleware.Parameters) (params CancelOrderParams) {
+	{
+		key := middleware.ParameterKey{
+			Name: "order_uuid",
+			In:   "path",
+		}
+		params.OrderUUID = packed[key].(string)
+	}
+	return params
+}
+
+func decodeCancelOrderParams(args [1]string, argsEscaped bool, r *http.Request) (params CancelOrderParams, _ error) {
+	// Decode path: order_uuid.
+	if err := func() error {
+		param := args[0]
+		if argsEscaped {
+			unescaped, err := url.PathUnescape(args[0])
+			if err != nil {
+				return errors.Wrap(err, "unescape path")
+			}
+			param = unescaped
+		}
+		if len(param) > 0 {
+			d := uri.NewPathDecoder(uri.PathDecoderConfig{
+				Param:   "order_uuid",
+				Value:   param,
+				Style:   uri.PathStyleSimple,
+				Explode: false,
+			})
+
+			if err := func() error {
+				val, err := d.DecodeValue()
+				if err != nil {
+					return err
+				}
+
+				c, err := conv.ToString(val)
+				if err != nil {
+					return err
+				}
+
+				params.OrderUUID = c
+				return nil
+			}(); err != nil {
+				return err
+			}
+		} else {
+			return validate.ErrFieldRequired
+		}
+		return nil
+	}(); err != nil {
+		return params, &ogenerrors.DecodeParamError{
+			Name: "order_uuid",
+			In:   "path",
+			Err:  err,
+		}
+	}
+	return params, nil
+}
+
 // GetOrderByIdParams is parameters of GetOrderById operation.
 type GetOrderByIdParams struct {
 	OrderUUID string
@@ -32,6 +97,71 @@ func unpackGetOrderByIdParams(packed middleware.Parameters) (params GetOrderById
 }
 
 func decodeGetOrderByIdParams(args [1]string, argsEscaped bool, r *http.Request) (params GetOrderByIdParams, _ error) {
+	// Decode path: order_uuid.
+	if err := func() error {
+		param := args[0]
+		if argsEscaped {
+			unescaped, err := url.PathUnescape(args[0])
+			if err != nil {
+				return errors.Wrap(err, "unescape path")
+			}
+			param = unescaped
+		}
+		if len(param) > 0 {
+			d := uri.NewPathDecoder(uri.PathDecoderConfig{
+				Param:   "order_uuid",
+				Value:   param,
+				Style:   uri.PathStyleSimple,
+				Explode: false,
+			})
+
+			if err := func() error {
+				val, err := d.DecodeValue()
+				if err != nil {
+					return err
+				}
+
+				c, err := conv.ToString(val)
+				if err != nil {
+					return err
+				}
+
+				params.OrderUUID = c
+				return nil
+			}(); err != nil {
+				return err
+			}
+		} else {
+			return validate.ErrFieldRequired
+		}
+		return nil
+	}(); err != nil {
+		return params, &ogenerrors.DecodeParamError{
+			Name: "order_uuid",
+			In:   "path",
+			Err:  err,
+		}
+	}
+	return params, nil
+}
+
+// PaymentOrderParams is parameters of PaymentOrder operation.
+type PaymentOrderParams struct {
+	OrderUUID string
+}
+
+func unpackPaymentOrderParams(packed middleware.Parameters) (params PaymentOrderParams) {
+	{
+		key := middleware.ParameterKey{
+			Name: "order_uuid",
+			In:   "path",
+		}
+		params.OrderUUID = packed[key].(string)
+	}
+	return params
+}
+
+func decodePaymentOrderParams(args [1]string, argsEscaped bool, r *http.Request) (params PaymentOrderParams, _ error) {
 	// Decode path: order_uuid.
 	if err := func() error {
 		param := args[0]

@@ -8,18 +8,36 @@ import (
 
 // Handler handles operations described by OpenAPI v3 specification.
 type Handler interface {
+	// CancelOrder implements CancelOrder operation.
+	//
+	// Cancel order.
+	//
+	// POST /api/v1/orders/{order_uuid}/cancel
+	CancelOrder(ctx context.Context, params CancelOrderParams) (CancelOrderRes, error)
 	// CreateOrder implements CreateOrder operation.
 	//
 	// Create order.
 	//
 	// POST /api/v1/orders
 	CreateOrder(ctx context.Context, req *CreateOrderRequest) (CreateOrderRes, error)
+	// GetAllOrders implements GetAllOrders operation.
+	//
+	// Получить список всех заказов.
+	//
+	// GET /api/v1/orders/list
+	GetAllOrders(ctx context.Context) (GetAllOrdersRes, error)
 	// GetOrderById implements GetOrderById operation.
 	//
 	// Get order.
 	//
 	// GET /api/v1/orders/{order_uuid}
 	GetOrderById(ctx context.Context, params GetOrderByIdParams) (GetOrderByIdRes, error)
+	// PaymentOrder implements PaymentOrder operation.
+	//
+	// Pay order.
+	//
+	// POST /api/v1/orders/{order_uuid}/pay
+	PaymentOrder(ctx context.Context, req *PayOrderRequest, params PaymentOrderParams) (PaymentOrderRes, error)
 	// NewError creates *GenericErrorStatusCode from error returned by handler.
 	//
 	// Used for common default response.

@@ -35,3 +35,14 @@ func (s *OrderStorage) GetOrderByUUID(uuid string) (*Order, error) {
 	}
 	return order, nil
 }
+
+func (s *OrderStorage) GetAllOrder() ([]*Order, error) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	orders := make([]*Order, 0, len(s.orders))
+
+	for _, v := range s.orders {
+		orders = append(orders, v)
+	}
+	return orders, nil
+}

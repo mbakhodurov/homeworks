@@ -17,12 +17,14 @@ import (
 	"github.com/mbakhodurov/homeworks/week1/order/pkg/models"
 	order_v1 "github.com/mbakhodurov/homeworks/week1/shared/pkg/openapi/order/v1"
 	inventory_v1 "github.com/mbakhodurov/homeworks/week1/shared/pkg/proto/inventory/v1"
+	payment_v1 "github.com/mbakhodurov/homeworks/week1/shared/pkg/proto/payment/v1"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
 
 const (
 	inventoryAddress = "localhost:50052"
+	paymentAddress   = "localhost:50051"
 
 	httpPort = "8086"
 	// Таймауты для HTTP-сервера
@@ -30,19 +32,21 @@ const (
 	shutdownTimeout   = 10 * time.Second
 )
 
-type OrderHandler struct {
+type Handler struct {
 	storage   *models.OrderStorage
 	inventory inventory_v1.InventoryServiceClient
+	payment   payment_v1.PaymentServiceClient
 }
 
-func NewOrderHandler(storage *models.OrderStorage, inventory inventory_v1.InventoryServiceClient) *OrderHandler {
-	return &OrderHandler{
+func NewHandler(storage *models.OrderStorage, inventory inventory_v1.InventoryServiceClient, payment payment_v1.PaymentServiceClient) *Handler {
+	return &Handler{
 		storage:   storage,
 		inventory: inventory,
+		payment:   payment,
 	}
 }
 
-func (h *OrderHandler) NewError(_ context.Context, err error) *order_v1.GenericErrorStatusCode {
+func (h *Handler) NewError(_ context.Context, err error) *order_v1.GenericErrorStatusCode {
 	return &order_v1.GenericErrorStatusCode{
 		StatusCode: 500,
 		Response: order_v1.GenericError{
@@ -52,7 +56,7 @@ func (h *OrderHandler) NewError(_ context.Context, err error) *order_v1.GenericE
 	}
 }
 
-func (h *OrderHandler) GetOrderById(ctx context.Context, params order_v1.GetOrderByIdParams) (order_v1.GetOrderByIdRes, error) {
+func (h *Handler) GetOrderById(ctx context.Context, params order_v1.GetOrderByIdParams) (order_v1.GetOrderByIdRes, error) {
 	orderUUID := params.OrderUUID
 
 	order, err := h.storage.GetOrderByUUID(orderUUID)
@@ -83,7 +87,7 @@ func (h *OrderHandler) GetOrderById(ctx context.Context, params order_v1.GetOrde
 	}, nil
 }
 
-func (h *OrderHandler) CreateOrder(ctx context.Context, req *order_v1.CreateOrderRequest) (order_v1.CreateOrderRes, error) {
+func (h *Handler) CreateOrder(ctx context.Context, req *order_v1.CreateOrderRequest) (order_v1.CreateOrderRes, error) {
 	if len(req.PartUuids) == 0 {
 		return &order_v1.BadRequestError{
 			Code:    400,
@@ -136,6 +140,116 @@ func (h *OrderHandler) CreateOrder(ctx context.Context, req *order_v1.CreateOrde
 	}, nil
 }
 
+func (h *Handler) PaymentOrder(ctx context.Context, req *order_v1.PayOrderRequest, params order_v1.PaymentOrderParams) (order_v1.PaymentOrderRes, error) {
+	order, err := h.storage.GetOrderByUUID(params.OrderUUID)
+	if err != nil {
+		if errors.Is(err, models.ErrNotFound) {
+			return &order_v1.NotFoundError{
+				Code:    404,
+				Message: "Заказ не найден",
+			}, nil
+		}
+		return nil, err
+	}
+
+	if order.Status != models.StatusPending {
+		return &order_v1.ConflictError{
+			Code:    409,
+			Message: "Order not in pending status",
+		}, nil
+	}
+
+	var paymentMethod payment_v1.PaymentMethod
+	switch req.PaymentMethod {
+	case "CARD":
+		paymentMethod = payment_v1.PaymentMethod_CARD
+	case "SBP":
+		paymentMethod = payment_v1.PaymentMethod_SBP
+	case "CREDIT_CARD":
+		paymentMethod = payment_v1.PaymentMethod_CREDIT_CARD
+	case "INVESTOR_MONEY":
+		paymentMethod = payment_v1.PaymentMethod_INVESTOR_MONEY
+	default:
+		return &order_v1.InternalServerError{Code: 500, Message: "Invalid payment method"}, nil
+	}
+
+	payresp, err := h.payment.PayOrder(ctx, &payment_v1.PayOrderRequest{
+		OrderUuid:     order.OrderUUID,
+		UserUuid:      order.UserUUID,
+		PaymentMethod: paymentMethod,
+	})
+	if err != nil {
+		return &order_v1.InternalServerError{Code: 500, Message: "Err:=" + err.Error()}, nil
+	}
+	order.Status = models.StatusPaid
+	order.PaymentMethod = (*models.PaymentMethod)(&req.PaymentMethod)
+	return &order_v1.PayOrderResponse{
+		OrderUUID: order_v1.OptString{Value: payresp.TransactionUuid},
+	}, nil
+}
+
+func (h *Handler) CancelOrder(ctx context.Context, params order_v1.CancelOrderParams) (order_v1.CancelOrderRes, error) {
+	order, err := h.storage.GetOrderByUUID(params.OrderUUID)
+	if err != nil {
+		if errors.Is(err, models.ErrNotFound) {
+			return &order_v1.NotFoundError{
+				Code:    404,
+				Message: "Заказ не найден",
+			}, nil
+		}
+		return nil, err
+	}
+
+	if order.Status == models.StatusPaid {
+		return &order_v1.ConflictError{
+			Code:    409,
+			Message: "Order has already paid",
+		}, nil
+	}
+
+	order.Status = models.StatusCancelled
+	return &order_v1.CancelOrderResponse{}, nil
+}
+
+func (h *Handler) GetAllOrders(ctx context.Context) (order_v1.GetAllOrdersRes, error) {
+	orders, err := h.storage.GetAllOrder()
+	if err != nil {
+		return &order_v1.InternalServerError{
+			Code:    500,
+			Message: err.Error(),
+		}, nil
+	}
+	if len(orders) == 0 {
+		return &order_v1.NotFoundError{
+			Code:    404,
+			Message: "Orders not found",
+		}, nil
+	}
+
+	dtoList := make([]order_v1.OrderDto, 0, len(orders))
+	for _, o := range orders {
+		dto := order_v1.OrderDto{
+			OrderUUID:  o.OrderUUID,
+			UserUUID:   o.UserUUID,
+			PartUuids:  o.PartUUIDs,
+			TotalPrice: float32(o.TotalPrice),
+			Status:     order_v1.OrderStatus(o.Status),
+		}
+		if o.TransactionUUID != nil {
+			dto.TransactionUUID = order_v1.NewOptNilString(*o.TransactionUUID)
+		}
+
+		// payment_method — optional
+		if o.PaymentMethod != nil {
+			dto.PaymentMethod = &order_v1.NilOrderDtoPaymentMethod{Value: order_v1.OrderDtoPaymentMethod(*o.PaymentMethod)}
+		}
+		dtoList = append(dtoList, dto)
+	}
+	return &order_v1.GetAllOrderResponse{
+		OrderDto: dtoList,
+	}, nil
+}
+
 func main() {
 	inventoryConn, err := grpc.NewClient(
 		inventoryAddress, grpc.WithTransportCredentials(insecure.NewCredentials()),
@@ -149,10 +263,23 @@ func main() {
 			log.Printf("failed to close connect: %v", cerr)
 		}
 	}()
-
 	inventoryClient := inventory_v1.NewInventoryServiceClient(inventoryConn)
 
-	orderHandler := NewOrderHandler(models.NewStorage(), inventoryClient)
+	paymentConn, err := grpc.NewClient(
+		paymentAddress, grpc.WithTransportCredentials(insecure.NewCredentials()),
+	)
+	if err != nil {
+		log.Printf("failed to connect: %v\n", err)
+		return
+	}
+	defer func() {
+		if cerr := paymentConn.Close(); cerr != nil {
+			log.Printf("failed to close connect: %v", cerr)
+		}
+	}()
+	paymentClient := payment_v1.NewPaymentServiceClient(paymentConn)
+
+	orderHandler := NewHandler(models.NewStorage(), inventoryClient, paymentClient)
 
 	orderServer, err := order_v1.NewServer(orderHandler)
 	if err != nil {
