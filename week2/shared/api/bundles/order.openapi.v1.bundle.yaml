@@ -1,0 +1,122 @@
+openapi: 3.0.3
+info:
+  title: OrderService API
+  version: 1.0.0
+  description: API для работы с заказами на постройку космических кораблей
+tags:
+  - name: Order
+    description: Операции с заказами на постройку космических кораблей — создание, оплата, получение и отмена заказов
+paths:
+  /api/v1/orders:
+    post:
+      summary: Create order
+      operationId: CreateOrder
+      tags:
+        - Orders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create_order_request'
+      responses:
+        '201':
+          description: Order created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/create_order_response'
+        '400':
+          description: Bad request - validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request_error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generic_error'
+components:
+  schemas:
+    create_order_request:
+      type: object
+      required:
+        - user_uuid
+        - part_uuids
+      properties:
+        user_uuid:
+          type: string
+          description: Идентификатор заказа
+          example: b3e1c2d4-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+        part_uuids:
+          type: array
+          items:
+            type: string
+          description: Массив идентификаторов деталей
+          example:
+            - part-uuid-1
+            - part-uuid-2
+    generic_error:
+      type: object
+      properties:
+        code:
+          type: integer
+          description: HTTP-код ошибки
+        message:
+          type: string
+          description: Описание ошибки
+    create_order_response:
+      type: object
+      required:
+        - order_uuid
+        - total_price
+      properties:
+        order_uuid:
+          type: string
+          description: Идентификатор заказа
+          example: b3e1c2d4-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+        total_price:
+          type: number
+          format: float
+          description: Общая цена заказа
+          example: 123.45
+    bad_request_error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          description: HTTP-код ошибки
+          example: 400
+        message:
+          type: string
+          description: Описание ошибки
+          example: 'Bad Request: Invalid parameter format'
+    internal_server_error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          description: HTTP-код ошибки
+          example: 500
+        message:
+          type: string
+          description: Описание ошибки
+          example: Internal server error
+x-ogen:
+  target: ./shared/pkg/openapi/order/v1
+  package: order_v1
+  clean: true

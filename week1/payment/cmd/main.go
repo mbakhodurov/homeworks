@@ -29,18 +29,19 @@ const (
 
 type PaymentService struct {
 	mu sync.RWMutex
+
 	payment_v1.UnimplementedPaymentServiceServer
 }
 
-func (p *PaymentService) PayOrder(ctx context.Context, req *payment_v1.PayOrderRequest) (*payment_v1.PayOrderResponse, error) {
+func (s *PaymentService) PayOrder(ctx context.Context, req *payment_v1.PayOrderRequest) (*payment_v1.PayOrderResponse, error) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
 	if err := req.Validate(); err != nil {
 		return nil, status.Errorf(codes.InvalidArgument, "validation error: %v", err)
 	}
-	p.mu.Lock()
-	defer p.mu.Unlock()
 
 	transactionUUID := uuid.NewString()
-
 	log.Printf("Оплата прошла успешно, transaction_uuid: %s",
 		transactionUUID)
 

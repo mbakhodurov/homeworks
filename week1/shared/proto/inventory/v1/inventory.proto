@@ -51,7 +51,7 @@ message GetAllPartResponse{
 }
 
 message GetPartRequest {
-    string uuid = 1;
+    string Uuid = 1;
 }
 
 message GetPartResponse  {
