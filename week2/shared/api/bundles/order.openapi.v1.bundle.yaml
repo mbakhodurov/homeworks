@@ -44,6 +44,160 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/generic_error'
+  /api/v1/orders/{order_uuid}:
+    get:
+      summary: Get order by UUID
+      operationId: GetOrderByUUID
+      tags:
+        - GetOrderByUUID
+      parameters:
+        - $ref: '#/components/parameters/order_uuid'
+      responses:
+        '200':
+          description: Order information successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_order_response'
+        '400':
+          description: Bad request - validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bad_request_error'
+        '404':
+          description: Weather data for specified city not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/not_found_error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generic_error'
+  /api/v1/orders/{order_uuid}/pay:
+    post:
+      summary: Pay order
+      operationId: PaymentOrder
+      tags:
+        - PaymentOrder
+      parameters:
+        - $ref: '#/components/parameters/order_uuid'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/pay_order_request'
+      responses:
+        '201':
+          description: Payment processed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pay_order_response'
+        '404':
+          description: Bad request - validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/not_found_error'
+        '409':
+          description: Conflict - order cannot be paid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/conflict_error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generic_error'
+  /api/v1/orders/{order_uuid}/cancel:
+    post:
+      summary: Cancel order
+      operationId: CancelOrder
+      tags:
+        - CancelOrder
+      parameters:
+        - $ref: '#/components/parameters/order_uuid'
+      responses:
+        '204':
+          description: Order successfully cancelled
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cancel_order_response'
+        '404':
+          description: Bad request - validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/not_found_error'
+        '409':
+          description: Conflict - order cannot be paid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/conflict_error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generic_error'
+  /api/v1/orders/list:
+    get:
+      summary: Получить список всех заказов
+      operationId: GetAllOrders
+      tags:
+        - GetAllOrders
+      responses:
+        '200':
+          description: Успешный ответ со списком заказов
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_all_order_response'
+        '404':
+          description: Order not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/not_found_error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internal_server_error'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generic_error'
 components:
   schemas:
     create_order_request:
@@ -116,6 +270,151 @@ components:
           type: string
           description: Описание ошибки
           example: Internal server error
+    payment_method:
+      type: string
+      description: Способ оплаты
+      enum:
+        - UNKNOWN
+        - CARD
+        - SBP
+        - CREDIT_CARD
+        - INVESTOR_MONEY
+      example: CARD
+    order_status:
+      type: string
+      description: Статус заказа
+      enum:
+        - UNKNOWN
+        - PENDING_PAYMENT
+        - PAID
+        - CANCELLED
+        - COMPLETED
+      example: PAID
+    order_dto:
+      type: object
+      required:
+        - order_uuid
+        - user_uuid
+        - part_uuids
+        - total_price
+        - status
+      properties:
+        order_uuid:
+          type: string
+          description: Идентификатор заказа
+          example: b3e1c2d4-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+        user_uuid:
+          type: string
+          description: Идентификатор пользователя
+          example: b3e1c2d4-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+        part_uuids:
+          type: array
+          items:
+            type: string
+          description: Массив идентификаторов деталей
+          example:
+            - part-uuid-1
+            - part-uuid-2
+        total_price:
+          type: number
+          format: float
+          description: Общая цена заказа
+          example: 123.45
+        transaction_uuid:
+          type: string
+          nullable: true
+          description: Идентификатор транзакции (если оплачен)
+          example: b3e1c2d4-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+        payment_method:
+          allOf:
+            - $ref: '#/components/schemas/payment_method'
+            - nullable: true
+          description: Способ оплаты (если оплачен)
+        status:
+          $ref: '#/components/schemas/order_status'
+    get_order_response:
+      type: object
+      required:
+        - order_dto
+      properties:
+        order_dto:
+          $ref: '#/components/schemas/order_dto'
+    not_found_error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          description: HTTP-код ошибки
+          example: 404
+        message:
+          type: string
+          description: Описание ошибки
+          example: Order not found
+    pay_order_request:
+      type: object
+      required:
+        - payment_method
+      properties:
+        payment_method:
+          $ref: '#/components/schemas/payment_method'
+    pay_order_response:
+      type: object
+      required:
+        - transaction_uuid
+      properties:
+        order_uuid:
+          type: string
+          description: Идентификатор транзакции
+          example: b3e1c2d4-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+    conflict_error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          description: HTTP-код ошибки
+          example: 409
+        message:
+          type: string
+          description: Описание ошибки
+          example: Order already paid and cannot be cancelled
+    cancel_order_response:
+      type: object
+      required:
+        - message
+      properties:
+        properties:
+          type: string
+          description: Успешно обнулен заказ
+    get_all_order_response:
+      type: object
+      required:
+        - order_dto
+        - total_count
+      properties:
+        order_dto:
+          type: array
+          items:
+            $ref: '#/components/schemas/order_dto'
+        total_count:
+          type: number
+          format: int
+          description: Кол-во заказов
+          example: 10
+  parameters:
+    order_uuid:
+      name: order_uuid
+      in: path
+      required: true
+      description: null
+      schema:
+        type: string
+        example: b3e1c2d4-5f6a-7b8c-9d0e-1f2a3b4c5d6e
 x-ogen:
   target: ./shared/pkg/openapi/order/v1
   package: order_v1

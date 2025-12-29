@@ -14,6 +14,10 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	v1 "github.com/mbakhodurov/homeworks/week2/inventory/internal/api/inventory/v1"
+	"github.com/mbakhodurov/homeworks/week2/inventory/internal/interceptor"
+	"github.com/mbakhodurov/homeworks/week2/inventory/internal/repository/inventory"
+	service "github.com/mbakhodurov/homeworks/week2/inventory/internal/service/inventory"
 	inventory_v1 "github.com/mbakhodurov/homeworks/week2/shared/pkg/proto/inventory/v1"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
@@ -275,11 +279,18 @@ func main() {
 			log.Printf("failed to close listener: %v\n", cerr)
 		}
 	}()
-	s := grpc.NewServer()
-	service := &InventoryService{
-		inventory: make(map[string]*inventory_v1.Part),
-	}
-	inventory_v1.RegisterInventoryServiceServer(s, service)
+	s := grpc.NewServer(
+		grpc.ChainUnaryInterceptor(
+			grpc.UnaryServerInterceptor(interceptor.LoggerInterceptor()),
+			// grpc.UnaryServerInterceptor(interceptor.LoggerInterceptor2()),
+		),
+	)
+
+	repo := inventory.NewRepository()
+	service := service.NewInventoryServiceClient(repo)
+	api := v1.NewInventoryApi(service)
+
+	inventory_v1.RegisterInventoryServiceServer(s, api)
 
 	reflection.Register(s)
 
