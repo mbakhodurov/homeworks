@@ -6,6 +6,7 @@ vars:
   PROTOC_GEN_GO_GRPC_VERSION: 'v1.5.1'
   PROTOC_GEN_GRPC_GATEWAY_VERSION: 'v2.26.3'
   PROTOC_GEN_VALIDATE_VERSION: 'v1.2.1'
+  MOCKERY_VERSION: 'v2.53.3'
 
   OGEN_VERSION: 'v1.12.0'
   YQ_VERSION: 'v4.45.2'
@@ -16,6 +17,7 @@ vars:
   PROTOC_GEN_GO_GRPC: '{{.BIN_DIR}}/protoc-gen-go-grpc'
   PROTOC_GEN_GRPC_GATEWAY: '{{.BIN_DIR}}/protoc-gen-grpc-gateway'
   PROTOC_GEN_VALIDATE: '{{.BIN_DIR}}/protoc-gen-validate'
+  MOCKERY: "{{.BIN_DIR}}/mockery"
 
   OGEN: '{{.BIN_DIR}}/ogen'
   YQ: '{{.BIN_DIR}}/yq'
@@ -142,3 +144,22 @@ tasks:
     cmds:
       - task: proto:gen
       - task: ogen:gen
+
+  mockery:install:
+    desc: "Устанавливает mockery в ./bin"
+    cmds:
+      - |
+        [ -f {{.MOCKERY}} ] || {
+          echo '📦 Installing mockery...'
+          GOBIN={{.BIN_DIR}} go install github.com/vektra/mockery/v2@{{.MOCKERY_VERSION}}
+        }
+    status:
+      - test -x {{.MOCKERY}}
+
+  mockery:gen:
+    desc: "Генерирует моки интерфейсов с помощью mockery"
+    deps: [ mockery:install ]
+    cmds:
+      - |
+        echo '🧪 Генерация моков...'
+        {{.MOCKERY}}

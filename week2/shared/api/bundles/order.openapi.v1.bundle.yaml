@@ -332,6 +332,20 @@ components:
           description: Способ оплаты (если оплачен)
         status:
           $ref: '#/components/schemas/order_status'
+        created_at:
+          type: string
+          format: date-time
+          description: Дата создания заказа
+        updated_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: Дата последнего обновления
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: Дата удаления
     get_order_response:
       type: object
       required:
@@ -365,7 +379,7 @@ components:
       required:
         - transaction_uuid
       properties:
-        order_uuid:
+        transaction_uuid:
           type: string
           description: Идентификатор транзакции
           example: b3e1c2d4-5f6a-7b8c-9d0e-1f2a3b4c5d6e

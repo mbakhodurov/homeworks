@@ -37,3 +37,18 @@ properties:
     description: Способ оплаты (если оплачен)
   status:
     $ref: ./enums/order_status.yaml
+
+  created_at:
+    type: string
+    format: date-time
+    description: Дата создания заказа
+  updated_at:
+    type: string
+    format: date-time
+    nullable: true
+    description: Дата последнего обновления
+  deleted_at:
+    type: string
+    format: date-time
+    nullable: true
+    description: Дата удаления

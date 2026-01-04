@@ -14,6 +14,9 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"github.com/mbakhodurov/homeworks/week2/payment/internal/interceptor"
+	v1 "github.com/mbakhodurov/homeworks/week2/payment/internal/service/api/payment/v1"
+	"github.com/mbakhodurov/homeworks/week2/payment/internal/service/payment"
 	payment_v1 "github.com/mbakhodurov/homeworks/week2/shared/pkg/proto/payment/v1"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
@@ -63,11 +66,19 @@ func main() {
 		}
 	}()
 
-	s := grpc.NewServer()
+	s := grpc.NewServer(
+		grpc.ChainUnaryInterceptor(
+			grpc.UnaryServerInterceptor(interceptor.LoggerInterceptor()),
+		),
+	)
 
-	service := &PaymentService{}
+	services := payment.NewService()
 
-	payment_v1.RegisterPaymentServiceServer(s, service)
+	api := v1.NewApi(services)
+
+	// service := &PaymentService{}
+
+	payment_v1.RegisterPaymentServiceServer(s, api)
 
 	reflection.Register(s)
 
