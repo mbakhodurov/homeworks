@@ -1,0 +1,140 @@
+syntax = "proto3";
+
+package inventory.v1;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/api/annotations.proto";
+import "validate/validate.proto";
+
+option go_package = "github.com/mbakhodurov/homeworks/week3/shared/pkg/proto/inventory/v1;inventory_v1";
+
+service InventoryService {
+  rpc CreateInventory(CreateInventoryRequest) returns (CreateInventoryResponse){
+    option (google.api.http) = {
+        post: "/api/v1/inventory"
+        body: "*"
+    };
+  }
+
+  rpc GetInventoryByUUID(GetInventoryByUUIDRequest) returns (GetInventoryResponse){
+    option (google.api.http) = {
+        get: "/api/v1/inventory/{uuid}"
+    };
+  }
+
+  rpc GetAllInventory(GetAllInventoryRequest) returns (GetAllInventoryResponse){
+    option (google.api.http) = {
+        get: "/api/v1/inventory"
+    };
+  }
+
+    rpc UpdateInventory(UpdateInventoryRequest) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            patch: "/api/v1/inventory/{uuid}"
+            body: "*"
+        };
+    }
+
+    rpc DeleteInventory(DeleteInventoryRequest) returns (DeleteResponse) {
+        option (google.api.http) = {
+            delete: "/api/v1/inventory/{uuid}"
+        };
+    }
+}
+
+message DeleteResponse{
+    int64 deleted_count = 1;
+}
+
+message DeleteInventoryRequest {
+    string uuid = 1;
+}
+
+message UpdateInventoryRequest{
+    string uuid = 1;
+    InventoryUpdateInfo update_info = 2;
+}
+
+message InventoryUpdateInfo{
+    google.protobuf.StringValue name = 1;
+    google.protobuf.StringValue description = 2;
+    google.protobuf.DoubleValue price = 3;
+    google.protobuf.Int64Value stock_quantity = 4;
+    Category category = 5;
+    Dimensions dimensions = 6;
+    Manufacturer manufacturer = 7;
+}
+
+message GetAllInventoryRequest{}
+message GetAllInventoryResponse{
+  repeated Inventory inventory = 1;
+  int64 total_count = 2;
+}
+
+message GetInventoryByUUIDRequest {
+    string uuid = 1;
+}
+
+message GetInventoryResponse  {
+    Inventory inventory = 1;
+}
+
+message CreateInventoryRequest{
+    InventoryInfo info = 1;
+}
+
+message CreateInventoryResponse {
+  string uuid = 1;
+}
+
+message Inventory{
+    string uuid = 1;
+    InventoryInfo inventory_info = 2;
+    google.protobuf.Timestamp created_at = 3;
+    google.protobuf.Timestamp updated_at = 4;
+    google.protobuf.Timestamp deleted_at = 5;
+}
+
+message InventoryInfo{
+    string name = 1 [(validate.rules).string = {min_len: 1, max_len: 50}];
+    string description = 2;
+    double price = 3;
+    int64 stock_quantity = 4;
+    Category category = 5;
+    Dimensions dimensions = 6;
+    Manufacturer manufacturer = 7;
+    repeated string tags = 8;
+    map<string, Value> metadata = 9;
+}
+
+enum Category {
+    CATEGORY_UNSPECIFIED = 0;
+    CATEGORY_ENGINE = 1;
+    CATEGORY_FUEL = 2;
+    CATEGORY_PORTHOLE = 3;
+    CATEGORY_WING = 4;
+}
+
+message Dimensions {
+    double length = 1;
+    double width = 2;
+    double height = 3;
+    double weight = 4;
+}
+
+message Manufacturer {
+    string name = 1;
+    string country = 2;
+    string website = 3;
+}
+
+message Value {
+    oneof kind {
+        string string_value = 1;
+        int64 int64_value = 2;
+        double double_value = 3;
+        bool bool_value = 4;
+    }
+}
