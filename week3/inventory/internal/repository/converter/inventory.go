@@ -96,8 +96,8 @@ func ConvertInventoryModelToRepoModel(inventoryModel model.Inventory) repoModel.
 	}
 }
 
-func ConvertInventoryUpdateModelToRepoModel(update model.PartInfoUpdate) repoModel.PartInfoUpdate {
-	return repoModel.PartInfoUpdate{
+func ConvertInventoryUpdateModelToRepoModel(update model.InventoryInfoUpdate) repoModel.InventoryInfoUpdate {
+	return repoModel.InventoryInfoUpdate{
 		Name:          update.Name,
 		Description:   update.Description,
 		Price:         update.Price,

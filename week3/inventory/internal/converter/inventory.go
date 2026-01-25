@@ -6,6 +6,41 @@ import (
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
+func InventortListPartProtoToModel(filter *inventory_v1.PartsFilter) model.InventoryFilter {
+	if filter == nil {
+		return model.InventoryFilter{}
+	}
+	partsInfo := model.InventoryFilter{}
+	if len(filter.GetUuids()) > 0 {
+		uuids := filter.GetUuids()
+		partsInfo.UUID = &uuids
+	}
+	if len(filter.GetNames()) > 0 {
+		names := filter.GetNames()
+		partsInfo.Names = &names
+	}
+
+	if len(filter.GetCategories()) > 0 {
+		categories := make([]model.Category, 0, len(filter.GetCategories()))
+		for _, c := range filter.GetCategories() {
+			categories = append(categories, model.Category(c))
+		}
+		partsInfo.Categories = &categories
+	}
+
+	if len(filter.GetManufacturerCountries()) > 0 {
+		countries := filter.GetManufacturerCountries()
+		partsInfo.ManufacturerCountries = &countries
+	}
+
+	if len(filter.GetTags()) > 0 {
+		tags := filter.GetTags()
+		partsInfo.Tags = &tags
+	}
+
+	return partsInfo
+}
+
 func InventoryModelToProto(inventory model.Inventory) *inventory_v1.Inventory {
 
 	var updatedAt *timestamppb.Timestamp
@@ -111,8 +146,8 @@ func InventoryInfoProtoToModel(partInfo *inventory_v1.InventoryInfo) model.Inven
 	}
 }
 
-func InventoryUpdateInfoProtoToModel(updatePartInfo *inventory_v1.InventoryUpdateInfo) model.PartInfoUpdate {
-	var res model.PartInfoUpdate
+func InventoryUpdateInfoProtoToModel(updatePartInfo *inventory_v1.InventoryUpdateInfo) model.InventoryInfoUpdate {
+	var res model.InventoryInfoUpdate
 
 	if updatePartInfo.Name != nil {
 		tmp := updatePartInfo.Name.Value

@@ -2,22 +2,24 @@ package inventory
 
 import (
 	"context"
+	"errors"
 	"log"
 
+	"github.com/mbakhodurov/homeworks/week3/inventory/internal/model"
 	"github.com/mbakhodurov/homeworks/week3/inventory/internal/repository/converter"
-	"github.com/mbakhodurov/homeworks/week3/inventory/internal/repository/model"
 	repomodel "github.com/mbakhodurov/homeworks/week3/inventory/internal/repository/model"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
-func (r *repository) ListParts(ctx context.Context, listpart model.ListParts) (*[]model.Inventory, error) {
-	r.mu.RLock()
-	defer r.mu.RUnlock()
-
-	mongoFilter := createFilter(listpart)
+func (r *repository) ListInventory(ctx context.Context, filter model.InventoryFilter) ([]model.Inventory, error) {
+	mongoFilter := createFilter(filter)
 
 	cursor, err := r.collection.Find(ctx, mongoFilter)
 	if err != nil {
+		if errors.Is(err, mongo.ErrNoDocuments) {
+			return nil, model.ErrInventoryNotFound
+		}
 		return nil, err
 	}
 	defer func() {
@@ -32,14 +34,14 @@ func (r *repository) ListParts(ctx context.Context, listpart model.ListParts) (*
 		return nil, err
 	}
 
-	parts := make([]model.Inventory, len(repoInventories))
-
-	for i, inventoryPart := range  {
-		parts[i] = converter.ConvertInventoryRepoModelToModel(inventoryPart)
+	Inventory := make([]model.Inventory, len(repoInventories))
+	for i, repoInventory := range repoInventories {
+		Inventory[i] = converter.ConvertInventoryRepoModelToModel(repoInventory)
 	}
+	return Inventory, nil
 }
 
-func createFilter(listpart model.ListParts) bson.M {
+func createFilter(listpart model.InventoryFilter) bson.M {
 	mongoFilter := bson.M{}
 	if listpart.UUID != nil && len(*listpart.UUID) > 0 {
 		mongoFilter["uuid"] = bson.M{"$in": *listpart.UUID}
@@ -60,6 +62,5 @@ func createFilter(listpart model.ListParts) bson.M {
 	if listpart.Tags != nil && len(*listpart.Tags) > 0 {
 		mongoFilter["inventoryinfo.tags"] = bson.M{"$in": *listpart.Tags}
 	}
-
 	return mongoFilter
 }

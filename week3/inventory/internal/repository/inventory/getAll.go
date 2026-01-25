@@ -14,8 +14,6 @@ import (
 )
 
 func (r *repository) GetAll(ctx context.Context) ([]model.Inventory, error) {
-	r.mu.RLock()
-	defer r.mu.RUnlock()
 
 	cursor, err := r.collection.Find(ctx, bson.M{})
 	if err != nil {
@@ -33,9 +31,6 @@ func (r *repository) GetAll(ctx context.Context) ([]model.Inventory, error) {
 	}()
 
 	var inventories []model.Inventory
-	// if err := cursor.All(ctx, &inventories); err != nil {
-	// 	return nil, err
-	// }
 
 	for cursor.Next(ctx) {
 		var repoInv repoModel.Inventory

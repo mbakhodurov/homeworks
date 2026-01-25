@@ -12,8 +12,6 @@ import (
 )
 
 func (r *repository) GetByUUID(ctx context.Context, uuid string) (model.Inventory, error) {
-	r.mu.RLock()
-	defer r.mu.RUnlock()
 
 	var inventory repoModel.Inventory
 	if err := r.collection.FindOne(ctx, bson.M{"uuid": uuid}).Decode(&inventory); err != nil {

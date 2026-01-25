@@ -11,6 +11,7 @@ post:
       application/json:
         schema:
           $ref: ../components/pay_order_request.yaml
+          
   responses:
     '201':
       description: Payment processed successfully

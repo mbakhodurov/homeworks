@@ -1,0 +1,27 @@
+services:
+  postgres-order:
+    image: postgres:17.0-alpine3.20
+    container_name: postgres-order
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER} # Пароль для MongoDB из .env
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data # Volume для сохранности данных базы
+    healthcheck: # Проверяем "здоровье" контейнера базы
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped # Автоматический перезапуск контейнера, кроме ручной остановки
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge # Обычная bridge-сеть Docker
+
+volumes:
+  pgdata: 
+

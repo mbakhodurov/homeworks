@@ -26,12 +26,25 @@ import (
 )
 
 const (
-	grpcPort = 50052
-	httpPort = 8082
+	// grpcPort   = 50052
+	// httpPort   = 8082
+	configPath = "../../deploy/compose/inventory/.env"
 )
 
 func main() {
-	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", grpcPort))
+
+	ctx := context.Background()
+	err := godotenv.Load(configPath)
+	dbURI := os.Getenv("MONGO_URI")
+	grpcPort := os.Getenv("grpcPort")
+	httpPort := os.Getenv("httpPort")
+
+	if err != nil {
+		log.Printf("failed to load .env file: %v\n", err)
+		return
+	}
+
+	lis, err := net.Listen("tcp", fmt.Sprintf(":%s", grpcPort))
 	if err != nil {
 		log.Printf("failed to listen: %v\n", err)
 		return
@@ -47,14 +60,6 @@ func main() {
 			// grpc.UnaryServerInterceptor(interceptor.LoggerInterceptor2()),
 		),
 	)
-
-	ctx := context.Background()
-	err = godotenv.Load("../.env")
-	if err != nil {
-		log.Printf("failed to load .env file: %v\n", err)
-		return
-	}
-	dbURI := os.Getenv("MONGO_URI")
 
 	// Создаем клиент MongoDB
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI(dbURI))
@@ -81,14 +86,14 @@ func main() {
 
 	// Создаем репозиторий заметок
 	inventoryRepo := inventory.NewRepository(ctx, db)
-	service := service.NewInventoryService(inventoryRepo)
+	service := service.NewService(inventoryRepo)
 	api := v1.NewInventoryApi(service)
 
 	inventory_v1.RegisterInventoryServiceServer(s, api)
 	reflection.Register(s)
 
 	go func() {
-		log.Printf("🚀 gRPC server listening on %d\n", grpcPort)
+		log.Printf("🚀 gRPC server listening on %s\n", grpcPort)
 		err = s.Serve(lis)
 		if err != nil {
 			log.Printf("failed to serve: %v\n", err)
@@ -104,7 +109,7 @@ func main() {
 		mux := runtime.NewServeMux()
 		opts := []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())}
 		err = inventory_v1.RegisterInventoryServiceHandlerFromEndpoint(
-			ctx, mux, fmt.Sprintf("localhost:%d", grpcPort),
+			ctx, mux, fmt.Sprintf("localhost:%s", grpcPort),
 			opts,
 		)
 		if err != nil {
@@ -112,11 +117,11 @@ func main() {
 			return
 		}
 		gwServer = &http.Server{
-			Addr:        fmt.Sprintf(":%d", httpPort),
+			Addr:        fmt.Sprintf(":%s", httpPort),
 			Handler:     mux,
 			ReadTimeout: 10 * time.Second,
 		}
-		log.Printf("🌐 HTTP server with gRPC-Gateway listening on %d\n", httpPort)
+		log.Printf("🌐 HTTP server with gRPC-Gateway listening on %s\n", httpPort)
 		err = gwServer.ListenAndServe()
 		if err != nil && err != http.ErrServerClosed {
 			log.Printf("Failed to serve HTTP: %v\n", err)

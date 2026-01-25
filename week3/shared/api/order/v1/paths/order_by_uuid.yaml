@@ -1,0 +1,38 @@
+get:
+  summary: Get order by UUID
+  operationId: GetOrderByUUID
+  tags:
+    - GetOrderByUUID
+  parameters:
+    - $ref: ../params/order_uuid.yaml
+  responses:
+    '200':
+      description: Order information successfully retrieved
+      content:
+        application/json:
+          schema:
+            $ref: ../components/get_order_response.yaml
+    '404':
+      description: Weather data for specified city not found
+      content:
+        application/json:
+          schema:
+            $ref: ../components/errors/not_found_error.yaml
+    '400':
+      description: Bad request - validation error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/errors/bad_request_error.yaml
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/errors/internal_server_error.yaml
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/errors/generic_error.yaml

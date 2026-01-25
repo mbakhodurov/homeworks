@@ -5,14 +5,14 @@ import (
 	def "github.com/mbakhodurov/homeworks/week3/inventory/internal/service"
 )
 
-var _ def.InventoryService = (*InventoryService)(nil)
+var _ def.InventoryService = (*service)(nil)
 
-type InventoryService struct {
+type service struct {
 	inventoryRepo repository.InventoryRepository
 }
 
-func NewInventoryService(inventoryRepo repository.InventoryRepository) *InventoryService {
-	return &InventoryService{
+func NewService(inventoryRepo repository.InventoryRepository) *service {
+	return &service{
 		inventoryRepo: inventoryRepo,
 	}
 }

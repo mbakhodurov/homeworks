@@ -11,7 +11,6 @@ import (
 )
 
 func (a *api) GetOrderByUUID(ctx context.Context, params order_v1.GetOrderByUUIDParams) (order_v1.GetOrderByUUIDRes, error) {
-	fmt.Println(params.OrderUUID)
 	order, err := a.OrderService.Get(ctx, params.OrderUUID)
 	if err != nil {
 		fmt.Println(err)

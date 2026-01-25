@@ -26,7 +26,7 @@ type InventoryInfo struct {
 	Metadata      map[string]Value `json:"metadata"`
 }
 
-type PartInfoUpdate struct {
+type InventoryInfoUpdate struct {
 	Name          *string
 	Description   *string
 	Price         *float64
@@ -70,7 +70,7 @@ type Value struct {
 	BoolValue   *bool    `json:"bool_value,omitempty"`
 }
 
-type ListParts struct {
+type InventoryFilter struct {
 	UUID                  *[]string
 	Names                 *[]string
 	Categories            *[]Category

@@ -22,7 +22,7 @@ func NewRepository(ctx context.Context, db *mongo.Database) *repository {
 
 	indexModels := []mongo.IndexModel{
 		{
-			Keys:    bson.D{{Key: "inventory_info.name", Value: 1}},
+			Keys:    bson.D{{Key: "inventoryinfo.name", Value: 1}},
 			Options: options.Index().SetUnique(true),
 		},
 		{

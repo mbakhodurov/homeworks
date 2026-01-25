@@ -11,24 +11,30 @@ import "validate/validate.proto";
 option go_package = "github.com/mbakhodurov/homeworks/week3/shared/pkg/proto/inventory/v1;inventory_v1";
 
 service InventoryService {
-  rpc CreateInventory(CreateInventoryRequest) returns (CreateInventoryResponse){
-    option (google.api.http) = {
-        post: "/api/v1/inventory"
-        body: "*"
-    };
-  }
+    rpc ListPartInventory(ListPartInventoryRequest) returns (ListPartInventoryResponse){
+        option (google.api.http) = {
+            get: "/api/v1/listparts"
+        };
+    }
 
-  rpc GetInventoryByUUID(GetInventoryByUUIDRequest) returns (GetInventoryResponse){
-    option (google.api.http) = {
-        get: "/api/v1/inventory/{uuid}"
-    };
-  }
+    rpc CreateInventory(CreateInventoryRequest) returns (CreateInventoryResponse){
+        option (google.api.http) = {
+            post: "/api/v1/inventory"
+            body: "*"
+        };
+    }
 
-  rpc GetAllInventory(GetAllInventoryRequest) returns (GetAllInventoryResponse){
-    option (google.api.http) = {
-        get: "/api/v1/inventory"
-    };
-  }
+    rpc GetInventoryByUUID(GetInventoryByUUIDRequest) returns (GetInventoryResponse){
+        option (google.api.http) = {
+            get: "/api/v1/inventory/{uuid}"
+        };
+    }
+
+    rpc GetAllInventory(GetAllInventoryRequest) returns (GetAllInventoryResponse){
+        option (google.api.http) = {
+            get: "/api/v1/inventory"
+        };
+    }
 
     rpc UpdateInventory(UpdateInventoryRequest) returns (google.protobuf.Empty) {
         option (google.api.http) = {
@@ -42,6 +48,21 @@ service InventoryService {
             delete: "/api/v1/inventory/{uuid}"
         };
     }
+}
+
+message ListPartInventoryRequest{
+    PartsFilter filter = 1;
+}
+message PartsFilter{
+    repeated string uuids = 1;
+    repeated string names = 2;
+    repeated Category categories = 3;
+    repeated string manufacturer_countries = 4;
+    repeated string tags = 5;
+}
+message ListPartInventoryResponse{
+    repeated Inventory inventory = 1;
+    int64 total_count = 2; 
 }
 
 message DeleteResponse{
