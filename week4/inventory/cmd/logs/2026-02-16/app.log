@@ -1,0 +1,1 @@
+{"level":"ERROR","timestamp":"2026-02-16T07:27:14.599+0500","caller":"inventory/getByUUID.go:14","message":"failed to get ufo","uuid":"0f7e7a02-6614-40eb-ae44-d52cdcd0f025","error":"inventory not found"}
