@@ -1,0 +1,29 @@
+package env
+
+import (
+	"github.com/caarlos0/env/v11"
+)
+
+type inventoryClientEnvConfig struct {
+	Host string `env:"GRPC_HOST,required"`
+	Port string `env:"GRPC_PORT,required"`
+}
+
+type inventoryClientConfig struct {
+	raw inventoryClientEnvConfig
+}
+
+func NewInventoryClienConfig() (*inventoryClientConfig, error) {
+	var raw inventoryClientEnvConfig
+	if err := env.Parse(raw); err != nil {
+		return nil, err
+	}
+
+	return &inventoryClientConfig{
+		raw: raw,
+	}, nil
+}
+
+func (cfg *inventoryClientConfig) Address() string {
+	return cfg.raw.Host + ":" + cfg.raw.Port
+}
