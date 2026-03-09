@@ -5,8 +5,8 @@ import (
 )
 
 type inventoryClientEnvConfig struct {
-	Host string `env:"GRPC_HOST,required"`
-	Port string `env:"GRPC_PORT,required"`
+	Host string `env:"INVENTORY_GRPC_HOST,required"`
+	Port string `env:"INVENTORY_GRPC_PORT,required"`
 }
 
 type inventoryClientConfig struct {
@@ -15,7 +15,7 @@ type inventoryClientConfig struct {
 
 func NewInventoryClienConfig() (*inventoryClientConfig, error) {
 	var raw inventoryClientEnvConfig
-	if err := env.Parse(raw); err != nil {
+	if err := env.Parse(&raw); err != nil {
 		return nil, err
 	}
 

@@ -1,0 +1,23 @@
+{"level":"INFO","timestamp":"2026-02-22T17:48:46.803+0500","caller":"app/app.go:92","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-02-22T18:57:06.905+0500","caller":"app/app.go:92","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-02-22T19:03:28.112+0500","caller":"app/app.go:92","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-02-22T19:03:31.122+0500","caller":"payment/pay.go:14","message":"payment succeeded","transaction_uuid":"1e23e132-1686-403a-8503-0a20680e9eaf","order_uuid":"f9bc5b64-31c4-43dd-88c6-3b9815b2cf04","user_uuid":"Duis nulla dolore pariatur","payment_method":0}
+{"level":"ERROR","timestamp":"2026-02-22T19:18:39.447+0500","caller":"cmd/main.go:28","message":"❌ Не удалось создать приложение","error":"listen tcp 127.0.0.1:50052: bind: address already in use"}
+{"level":"ERROR","timestamp":"2026-02-22T19:19:32.164+0500","caller":"cmd/main.go:28","message":"❌ Не удалось создать приложение","error":"listen tcp 127.0.0.1:50052: bind: address already in use"}
+{"level":"ERROR","timestamp":"2026-02-22T19:20:09.566+0500","caller":"cmd/main.go:28","message":"❌ Не удалось создать приложение","error":"listen tcp 127.0.0.1:50052: bind: address already in use"}
+{"level":"INFO","timestamp":"2026-02-22T19:23:24.626+0500","caller":"app/app.go:92","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-02-22T19:23:25.617+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-02-22T19:23:25.618+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-02-22T19:23:25.618+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-02-22T19:23:25.618+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-02-22T19:23:25.618+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 120.404µs"}
+{"level":"INFO","timestamp":"2026-02-22T19:23:25.618+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 339.081µs"}
+{"level":"INFO","timestamp":"2026-02-22T19:23:25.618+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-02-22T19:23:29.792+0500","caller":"app/app.go:92","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-02-22T19:23:30.550+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-02-22T19:23:30.550+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-02-22T19:23:30.550+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-02-22T19:23:30.551+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-02-22T19:23:30.551+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 242.871µs"}
+{"level":"INFO","timestamp":"2026-02-22T19:23:30.551+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 290.861µs"}
+{"level":"INFO","timestamp":"2026-02-22T19:23:30.551+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}

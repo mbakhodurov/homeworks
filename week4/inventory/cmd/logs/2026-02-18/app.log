@@ -1,0 +1,9 @@
+{"level":"INFO","timestamp":"2026-02-18T06:42:33.140+0500","caller":"app/app.go:109","message":"🚀 gRPC InventoryService server listening on localhost:50051"}
+{"level":"INFO","timestamp":"2026-02-18T06:50:04.526+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-02-18T06:50:04.527+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-02-18T06:50:04.527+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"ERROR","timestamp":"2026-02-18T06:50:04.527+0500","caller":"cmd/main.go:39","message":"❌ Ошибка при работе приложения","error":"accept tcp 127.0.0.1:50051: use of closed network connection"}
+{"level":"INFO","timestamp":"2026-02-18T06:50:04.527+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 201.125µs"}
+{"level":"INFO","timestamp":"2026-02-18T06:50:04.527+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-02-18T06:50:04.528+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 338.483µs"}
+{"level":"INFO","timestamp":"2026-02-18T06:50:04.528+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}

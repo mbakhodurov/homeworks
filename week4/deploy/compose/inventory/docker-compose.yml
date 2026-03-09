@@ -27,7 +27,8 @@ services:
 
 networks: # Определение используемой сети
   microservices-net:
-    driver: bridge
+    external: true
+    # driver: bridge
 
 volumes: # Раздел с томами — определяем хранилище, которое создаст Docker
   mongo_inventory_data:

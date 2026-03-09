@@ -23,7 +23,7 @@ type postgresConfig struct {
 func NewPostgresConfig() (*postgresConfig, error) {
 	var raw postgresEnvConfig
 
-	if err := env.Parse(raw); err != nil {
+	if err := env.Parse(&raw); err != nil {
 		return nil, err
 	}
 

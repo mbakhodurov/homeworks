@@ -4,4 +4,6 @@ use(
     ./inventory
     ./shared
     ./platform
+    ./payment
+    ./order
 )

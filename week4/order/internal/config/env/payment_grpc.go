@@ -5,8 +5,8 @@ import (
 )
 
 type paymentClientEnvConfig struct {
-	Host string `env:"GRPC_HOST,required"`
-	Port string `env:"GRPC_PORT,required"`
+	Host string `env:"PAYMENT_GRPC_HOST,required"`
+	Port string `env:"PAYMENT_GRPC_PORT,required"`
 }
 
 type paymentClientConfig struct {
@@ -15,7 +15,7 @@ type paymentClientConfig struct {
 
 func NewPaymentClientConfig() (*paymentClientConfig, error) {
 	var raw paymentClientEnvConfig
-	if err := env.Parse(raw); err != nil {
+	if err := env.Parse(&raw); err != nil {
 		return nil, err
 	}
 

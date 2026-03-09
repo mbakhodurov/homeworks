@@ -13,6 +13,7 @@ func (s *service) GetByUUID(ctx context.Context, uuid string) (model.Inventory, 
 	if err != nil {
 		logger.Error(ctx, "failed to get ufo",
 			zap.String("uuid", uuid),
+			zap.String("inventory-->GetByUUID", ""),
 			zap.Error(err),
 		)
 		return model.Inventory{}, err

@@ -3,82 +3,49 @@ package main
 import (
 	"context"
 	"fmt"
-	"log"
-	"os"
+	"os/signal"
+	"syscall"
 	"time"
 
-	"github.com/jackc/pgx/v5"
-	"github.com/joho/godotenv"
+	"github.com/mbakhodurov/homeworks/week4/order/internal/app"
+	"github.com/mbakhodurov/homeworks/week4/order/internal/config"
+	"github.com/mbakhodurov/homeworks/week4/platform/pkg/closer"
+	"github.com/mbakhodurov/homeworks/week4/platform/pkg/logger"
+	"go.uber.org/zap"
 )
 
-const (
-	inventoryAddress = "localhost:50052"
-	paymentAddress   = "localhost:50051"
-
-	httpPort   = "8086"
-	configPath = "../deploy/compose/order/.env"
-	// Таймауты для HTTP-сервера
-	readHeaderTimeout = 5 * time.Second
-	shutdownTimeout   = 10 * time.Second
-)
-
-func buildPostgresDSN() string {
-	host := os.Getenv("POSTGRES_HOST")
-	port := os.Getenv("POSTGRES_PORT")
-	user := os.Getenv("POSTGRES_USER")
-	password := os.Getenv("POSTGRES_PASSWORD")
-	db := os.Getenv("POSTGRES_DB")
-	sslMode := os.Getenv("POSTGRES_SSL_MODE")
-
-	return fmt.Sprintf(
-		"postgres://%s:%s@%s:%s/%s?sslmode=%s",
-		user,
-		password,
-		host,
-		port,
-		db,
-		sslMode,
-	)
-}
+const configPath = "../../deploy/compose/order/.env"
 
 func main() {
-	ctx := context.Background()
-
-	err := godotenv.Load(configPath)
+	err := config.Load(configPath)
 	if err != nil {
-		log.Printf("failed to load .env file: %v\n", err)
+		panic(fmt.Errorf("failed to load config: %w", err))
+	}
+
+	appCtx, appCancel := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
+	defer appCancel()
+	defer gracefulShutdown()
+
+	closer.Configure(syscall.SIGINT, syscall.SIGTERM)
+
+	a, err := app.New(appCtx)
+	if err != nil {
+		logger.Error(appCtx, "💥 Не удалось создать приложение", zap.Error(err))
 		return
 	}
 
-	dbURI := buildPostgresDSN()
-	// dbURI := os.Getenv("DB_URI")
-
-	// Создаем соединение с базой данных
-	con, err := pgx.Connect(ctx, dbURI)
+	err = a.Run(appCtx)
 	if err != nil {
-		log.Printf("failed to connect to database: %v\n", err)
+		logger.Error(appCtx, "💥 Ошибка при работе приложения", zap.Error(err))
 		return
 	}
-	defer func() {
-		cerr := con.Close(ctx)
-		if cerr != nil {
-			log.Printf("failed to close connection: %v\n", cerr)
-		}
-	}()
+}
 
-	err = con.Ping(ctx)
-	if err != nil {
-		log.Printf("База данных недоступна: %v\n", err)
-		return
+func gracefulShutdown() {
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	if err := closer.CloseAll(ctx); err != nil {
+		logger.Error(ctx, "💥 Ошибка при завершении работы", zap.Error(err))
 	}
-
-	// // Инициализируем мигратор
-	// migrationsDir := os.Getenv("MIGRATIONS_DIR")
-	// migratorRunner := migrator.NewMigrator(stdlib.OpenDB(*con.Config().Copy()), "../"+migrationsDir)
-
-	// err = migratorRunner.Up()
-	// if err != nil {
-	// 	log.Printf("Ошибка миграции базы данных: %v\n", err)
-	// 	return
-	// }
 }

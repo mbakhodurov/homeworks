@@ -131,7 +131,7 @@ func ResponseProtoToInventoryModel(from *inventory_v1.ListPartInventoryResponse)
 			InventoryInfo: InventoryInfoProtoToModel(part.InventoryInfo),
 			CreatedAt:     part.CreatedAt.AsTime(),
 			UpdatedAt:     timestampToPtr(part.UpdatedAt),
-			DeletedAt:     timestampToPtr(part.UpdatedAt),
+			DeletedAt:     timestampToPtr(part.DeletedAt),
 		}
 		resPart = append(resPart, part)
 	}

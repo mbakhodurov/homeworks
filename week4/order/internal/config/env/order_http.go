@@ -19,7 +19,7 @@ type orderHTTPConfig struct {
 
 func NewOrderHTTPConfig() (*orderHTTPConfig, error) {
 	var raw orderHTTPEnvConfig
-	if err := env.Parse(raw); err != nil {
+	if err := env.Parse(&raw); err != nil {
 		return nil, err
 	}
 

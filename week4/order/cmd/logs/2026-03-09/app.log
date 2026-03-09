@@ -1,0 +1,84 @@
+{"level":"INFO","timestamp":"2026-03-09T16:11:50.675+0500","caller":"app/app.go:85","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-03-09T16:11:50.676+0500","caller":"app/app.go:125","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"ERROR","timestamp":"2026-03-09T16:12:33.633+0500","caller":"order/create.go:29","message":"Ошибка с работой с InventoryClient","error":"rpc error: code = Unavailable desc = error reading from server: EOF"}
+{"level":"ERROR","timestamp":"2026-03-09T16:23:39.035+0500","caller":"order/create.go:34","message":"Ошибка с работой с InventoryClient"}
+{"level":"ERROR","timestamp":"2026-03-09T16:29:58.080+0500","caller":"order/create.go:34","message":"Ошибка с работой с InventoryClient"}
+{"level":"INFO","timestamp":"2026-03-09T16:36:06.122+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-03-09T16:36:06.122+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-03-09T16:36:06.123+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-03-09T16:36:06.123+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-03-09T16:36:06.123+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 358.524µs"}
+{"level":"INFO","timestamp":"2026-03-09T16:36:06.123+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-03-09T16:36:06.123+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 469.888µs"}
+{"level":"INFO","timestamp":"2026-03-09T16:36:06.125+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-03-09T16:36:06.125+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 1.603821ms"}
+{"level":"INFO","timestamp":"2026-03-09T16:36:06.125+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 2.453935ms"}
+{"level":"INFO","timestamp":"2026-03-09T16:36:06.125+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-03-09T16:36:08.467+0500","caller":"app/app.go:85","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-03-09T16:36:08.468+0500","caller":"app/app.go:125","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-03-09T16:38:22.661+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-03-09T16:38:22.661+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-03-09T16:38:22.662+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-03-09T16:38:22.662+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-03-09T16:38:22.662+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-03-09T16:38:22.662+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-03-09T16:38:22.662+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 337.476µs"}
+{"level":"INFO","timestamp":"2026-03-09T16:38:22.662+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 235.199µs"}
+{"level":"INFO","timestamp":"2026-03-09T16:38:22.662+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 555.383µs"}
+{"level":"INFO","timestamp":"2026-03-09T16:38:22.663+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 1.044535ms"}
+{"level":"INFO","timestamp":"2026-03-09T16:38:22.663+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-03-09T16:38:23.643+0500","caller":"app/app.go:85","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-03-09T16:38:23.643+0500","caller":"app/app.go:125","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-03-09T23:00:15.975+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-03-09T23:00:15.982+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-03-09T23:00:15.985+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-03-09T23:00:15.987+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-03-09T23:00:15.986+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-03-09T23:00:15.986+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-03-09T23:00:15.990+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 4.494323ms"}
+{"level":"INFO","timestamp":"2026-03-09T23:00:15.991+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 7.431956ms"}
+{"level":"INFO","timestamp":"2026-03-09T23:00:15.992+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 6.432397ms"}
+{"level":"INFO","timestamp":"2026-03-09T23:00:15.992+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 7.537841ms"}
+{"level":"INFO","timestamp":"2026-03-09T23:00:15.992+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-03-09T23:00:19.436+0500","caller":"app/app.go:85","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-03-09T23:00:19.436+0500","caller":"app/app.go:125","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-03-09T23:10:31.395+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-03-09T23:10:31.396+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-03-09T23:10:31.396+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-03-09T23:10:31.396+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-03-09T23:10:31.396+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-03-09T23:10:31.396+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-03-09T23:10:31.396+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 372.921µs"}
+{"level":"INFO","timestamp":"2026-03-09T23:10:31.396+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 391.717µs"}
+{"level":"INFO","timestamp":"2026-03-09T23:10:31.397+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 460.136µs"}
+{"level":"INFO","timestamp":"2026-03-09T23:10:31.397+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 581.42µs"}
+{"level":"INFO","timestamp":"2026-03-09T23:10:31.397+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-03-09T23:10:34.371+0500","caller":"app/app.go:85","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-03-09T23:10:34.371+0500","caller":"app/app.go:125","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"ERROR","timestamp":"2026-03-09T23:10:37.761+0500","caller":"v1/get.go:23","message":"ошибка","error":"sql: Scan error on column index 9, name \"deleted_at\": unsupported Scan, storing driver.Value type <nil> into type *model.Order"}
+{"level":"INFO","timestamp":"2026-03-09T23:12:49.736+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-03-09T23:12:49.737+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-03-09T23:12:49.737+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-03-09T23:12:49.737+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-03-09T23:12:49.737+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 276.762µs"}
+{"level":"INFO","timestamp":"2026-03-09T23:12:49.737+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 273.561µs"}
+{"level":"INFO","timestamp":"2026-03-09T23:12:49.737+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-03-09T23:12:49.737+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-03-09T23:12:49.738+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 387.762µs"}
+{"level":"INFO","timestamp":"2026-03-09T23:12:49.738+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 625.157µs"}
+{"level":"INFO","timestamp":"2026-03-09T23:12:49.738+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-03-09T23:12:51.667+0500","caller":"app/app.go:85","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-03-09T23:12:51.667+0500","caller":"app/app.go:125","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-03-09T23:18:21.141+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-03-09T23:18:21.150+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-03-09T23:18:21.150+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-03-09T23:18:21.150+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-03-09T23:18:21.150+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-03-09T23:18:21.151+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-03-09T23:18:21.150+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 144.464µs"}
+{"level":"INFO","timestamp":"2026-03-09T23:18:21.151+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 454.669µs"}
+{"level":"INFO","timestamp":"2026-03-09T23:18:21.152+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 1.254298ms"}
+{"level":"INFO","timestamp":"2026-03-09T23:18:21.154+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 3.796877ms"}
+{"level":"INFO","timestamp":"2026-03-09T23:18:21.154+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-03-09T23:18:22.135+0500","caller":"app/app.go:85","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-03-09T23:18:22.135+0500","caller":"app/app.go:125","message":"🚀 HTTP OrderService server listening on localhost:8080"}

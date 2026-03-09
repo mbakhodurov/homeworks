@@ -6,13 +6,16 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/mbakhodurov/homeworks/week4/order/internal/model"
+	"github.com/mbakhodurov/homeworks/week4/platform/pkg/logger"
 	"github.com/samber/lo"
+	"go.uber.org/zap"
 )
 
 const inventoryTimeout = 5 * time.Second
 
 func (s *service) Create(ctx context.Context, user_uuid string, partUUIDs []string) (*model.Order, error) {
 	if len(partUUIDs) == 0 {
+		logger.Error(ctx, "PartUUID отсутствует")
 		return nil, model.ErrPartsNotFound
 	}
 
@@ -23,10 +26,12 @@ func (s *service) Create(ctx context.Context, user_uuid string, partUUIDs []stri
 		UUID: &partUUIDs,
 	})
 	if err != nil {
+		logger.Error(ctx, "Ошибка с работой с InventoryClient", zap.Error(err))
 		return &model.Order{}, err
 	}
 
 	if len(inventories) != len(partUUIDs) {
+		logger.Error(ctx, "Ошибка с работой с InventoryClient", zap.Error(err))
 		return nil, model.ErrPartsNotFound
 	}
 
@@ -47,6 +52,7 @@ func (s *service) Create(ctx context.Context, user_uuid string, partUUIDs []stri
 
 	_, err = s.orderRepo.CreateOrder(ctx, order)
 	if err != nil {
+		logger.Error(ctx, "Ошибка с работой с CreateOrder", zap.Error(err))
 		return &model.Order{}, err
 	}
 
