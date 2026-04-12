@@ -1,0 +1,13 @@
+{"level":"INFO","timestamp":"2026-03-28T00:16:03.559+0500","caller":"app/app.go:93","message":"🚀 gRPC InventoryService server listening on localhost:50051"}
+{"level":"ERROR","timestamp":"2026-03-28T00:16:22.600+0500","caller":"inventory/getAll.go:14","message":"failed to GetAll inventory","inventory-->GetAll":"","error":"inventory not found"}
+{"level":"ERROR","timestamp":"2026-03-28T00:17:21.217+0500","caller":"inventory/getByUUID.go:14","message":"failed to get inventory","uuid":"a5a15981-0469-429d-b3cb-6085041c6e9b","inventory-->GetByUUID":"","error":"inventory not found"}
+{"level":"INFO","timestamp":"2026-03-28T09:06:18.529+0500","caller":"app/app.go:93","message":"🚀 gRPC InventoryService server listening on localhost:50051"}
+{"level":"INFO","timestamp":"2026-03-28T09:06:37.486+0500","caller":"app/app.go:92","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-03-28T09:06:58.713+0500","caller":"payment/payment.go:14","message":"payment succeeded","transaction_uuid":"78cb9eb3-f0c3-492f-8d9f-be569c7407b9","order_uuid":"f9bc5b64-31c4-43dd-88c6-3b9815b2cf04","user_uuid":"Duis nulla dolore pariatur","payment_method":0}
+{"level":"INFO","timestamp":"2026-03-28T21:32:22.537+0500","caller":"app/app.go:93","message":"🚀 gRPC InventoryService server listening on localhost:50051"}
+{"level":"INFO","timestamp":"2026-03-28T21:32:48.755+0500","caller":"app/app.go:92","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-03-28T21:55:20.417+0500","caller":"app/app.go:93","message":"🚀 gRPC InventoryService server listening on localhost:50051"}
+{"level":"INFO","timestamp":"2026-03-28T21:55:46.684+0500","caller":"app/app.go:92","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"ERROR","timestamp":"2026-03-28T22:12:09.921+0500","caller":"order/create.go:35","message":"Ошибка с работой с InventoryClient"}
+{"level":"ERROR","timestamp":"2026-03-28T22:14:17.866+0500","caller":"order/create.go:35","message":"Ошибка с работой с InventoryClient"}
+{"level":"ERROR","timestamp":"2026-03-28T22:15:01.382+0500","caller":"order/create.go:55","message":"Ошибка с работой с CreateOrder","error":"ERROR: relation \"orders\" does not exist (SQLSTATE 42P01)"}
