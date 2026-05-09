@@ -3,12 +3,12 @@ package app
 import (
 	"context"
 
-	"github.com/go-faster/errors"
 	"github.com/go-telegram/bot"
 	"github.com/go-telegram/bot/models"
 	"github.com/mbakhodurov/homeworks/week5/notification/internal/config"
 	"github.com/mbakhodurov/homeworks/week5/platform/pkg/closer"
 	"github.com/mbakhodurov/homeworks/week5/platform/pkg/logger"
+	"github.com/pkg/errors"
 	"go.uber.org/zap"
 )
 

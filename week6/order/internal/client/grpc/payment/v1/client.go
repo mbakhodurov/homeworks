@@ -1,0 +1,15 @@
+package v1
+
+import (
+	payment_v1 "github.com/mbakhodurov/homeworks/week6/shared/pkg/proto/payment/v1"
+)
+
+type Client struct {
+	generatedClient payment_v1.PaymentServiceClient
+}
+
+func NewClient(generatedClient payment_v1.PaymentServiceClient) *Client {
+	return &Client{
+		generatedClient: generatedClient,
+	}
+}

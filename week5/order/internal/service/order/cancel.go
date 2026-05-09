@@ -14,8 +14,8 @@ func (s *service) Cancel(ctx context.Context, orderUUID string) error {
 		return err
 	}
 
-	if order.Status == model.StatusCancelled {
-		return model.ErrOrderCancelled
+	if order.Status == model.StatusPaid {
+		return model.ErrOrderAlreadyPaid
 	}
 
 	if order.Status == model.StatusCancelled {

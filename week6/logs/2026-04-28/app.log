@@ -1,0 +1,307 @@
+{"level":"INFO","timestamp":"2026-04-28T23:12:42.021+0500","caller":"app/app.go:90","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-04-28T23:12:42.033+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-04-28T23:12:42.097+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-fee970d5-79cc-4b94-95a0-a651abe9e1a8","claims":{"order.paid":[0,1]}}
+{"level":"INFO","timestamp":"2026-04-28T23:13:18.517+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:13:18.517+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:13:19.019+0500","caller":"order_consumer/consumer.go:33","message":"Kafka consumer group rebalancing..."}
+{"level":"INFO","timestamp":"2026-04-28T23:13:19.028+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-fee970d5-79cc-4b94-95a0-a651abe9e1a8","claims":{"order.paid":[1]}}
+{"level":"INFO","timestamp":"2026-04-28T23:39:03.210+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"message received","member_id":"sarama-fee970d5-79cc-4b94-95a0-a651abe9e1a8","key":"09f83682-02f9-4745-ad32-b2622ccd0bba","partition":1,"offset":0}
+{"level":"INFO","timestamp":"2026-04-28T23:39:03.211+0500","caller":"consumer/groupHandler.go:66","message":"Kafka msg received","topic":"order.paid"}
+{"level":"INFO","timestamp":"2026-04-28T23:39:03.211+0500","caller":"order_consumer/handler.go:15","message":"handler start"}
+{"level":"INFO","timestamp":"2026-04-28T23:39:03.212+0500","caller":"order_consumer/handler.go:23","message":"Processing message","topic":"order.paid","partition":1,"offset":0,"order_uuid":"09f83682-02f9-4745-ad32-b2622ccd0bba","event_uuid":"103a0ea7-54ce-4889-b98f-a17dcb9ebfe6","payment_method":"investor-money","transaction_uuid":"69f2344a-89f3-45a6-8982-ac6d70906158"}
+{"level":"INFO","timestamp":"2026-04-28T23:39:03.214+0500","caller":"order_producer/producer.go:27","message":"Message sent","topic":"order.assembled","partition":1,"offset":1,"key":"103a0ea7-54ce-4889-b98f-a17dcb9ebfe6","value":"\n$103a0ea7-54ce-4889-b98f-a17dcb9ebfe6\u0012$09f83682-02f9-4745-ad32-b2622ccd0bba\u001a$09f83682-02f9-4745-ad32-b2622ccd0bba \u0001"}
+{"level":"INFO","timestamp":"2026-04-28T23:39:03.215+0500","caller":"order_consumer/handler.go:57","message":"handler end"}
+{"level":"INFO","timestamp":"2026-04-28T23:39:45.993+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"message received","member_id":"sarama-fee970d5-79cc-4b94-95a0-a651abe9e1a8","key":"ade8f84d-ce44-407a-bf61-d9c27551de57","partition":1,"offset":1}
+{"level":"INFO","timestamp":"2026-04-28T23:39:45.993+0500","caller":"consumer/groupHandler.go:66","message":"Kafka msg received","topic":"order.paid"}
+{"level":"INFO","timestamp":"2026-04-28T23:39:45.993+0500","caller":"order_consumer/handler.go:15","message":"handler start"}
+{"level":"INFO","timestamp":"2026-04-28T23:39:45.993+0500","caller":"order_consumer/handler.go:23","message":"Processing message","topic":"order.paid","partition":1,"offset":1,"order_uuid":"ade8f84d-ce44-407a-bf61-d9c27551de57","event_uuid":"39423fa1-014d-41b7-bd58-020f5556b6a3","payment_method":"investor-money","transaction_uuid":"f4358e00-7e2d-4061-bf9f-81b85f57d36c"}
+{"level":"INFO","timestamp":"2026-04-28T23:39:45.994+0500","caller":"order_producer/producer.go:27","message":"Message sent","topic":"order.assembled","partition":1,"offset":2,"key":"39423fa1-014d-41b7-bd58-020f5556b6a3","value":"\n$39423fa1-014d-41b7-bd58-020f5556b6a3\u0012$ade8f84d-ce44-407a-bf61-d9c27551de57\u001a$ade8f84d-ce44-407a-bf61-d9c27551de57 \u0005"}
+{"level":"INFO","timestamp":"2026-04-28T23:39:45.994+0500","caller":"order_consumer/handler.go:57","message":"handler end"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:38.352+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"message received","member_id":"sarama-fee970d5-79cc-4b94-95a0-a651abe9e1a8","key":"ade8f84d-ce44-407a-bf61-d9c27551de57","partition":1,"offset":2}
+{"level":"INFO","timestamp":"2026-04-28T23:45:38.352+0500","caller":"consumer/groupHandler.go:66","message":"Kafka msg received","topic":"order.paid"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:38.352+0500","caller":"order_consumer/handler.go:15","message":"handler start"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:38.352+0500","caller":"order_consumer/handler.go:23","message":"Processing message","topic":"order.paid","partition":1,"offset":2,"order_uuid":"ade8f84d-ce44-407a-bf61-d9c27551de57","event_uuid":"8cf8b230-58f7-49d3-933d-670cb1700424","payment_method":"investor-money","transaction_uuid":"3cf18198-69fd-4226-bc5f-5e6c1a88d6d8"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:38.355+0500","caller":"order_producer/producer.go:27","message":"Message sent","topic":"order.assembled","partition":0,"offset":0,"key":"8cf8b230-58f7-49d3-933d-670cb1700424","value":"\n$8cf8b230-58f7-49d3-933d-670cb1700424\u0012$ade8f84d-ce44-407a-bf61-d9c27551de57\u001a$ade8f84d-ce44-407a-bf61-d9c27551de57 \u0002"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:38.355+0500","caller":"order_consumer/handler.go:57","message":"handler end"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:55.360+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"message received","member_id":"sarama-fee970d5-79cc-4b94-95a0-a651abe9e1a8","key":"09f83682-02f9-4745-ad32-b2622ccd0bba","partition":1,"offset":3}
+{"level":"INFO","timestamp":"2026-04-28T23:45:55.361+0500","caller":"consumer/groupHandler.go:66","message":"Kafka msg received","topic":"order.paid"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:55.361+0500","caller":"order_consumer/handler.go:15","message":"handler start"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:55.361+0500","caller":"order_consumer/handler.go:23","message":"Processing message","topic":"order.paid","partition":1,"offset":3,"order_uuid":"09f83682-02f9-4745-ad32-b2622ccd0bba","event_uuid":"96113b15-b6e8-492f-a4b3-5672b0d87fa7","payment_method":"investor-money","transaction_uuid":"c21ca131-0665-4c26-8aa9-99c0c2bab450"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:55.362+0500","caller":"order_producer/producer.go:27","message":"Message sent","topic":"order.assembled","partition":0,"offset":1,"key":"96113b15-b6e8-492f-a4b3-5672b0d87fa7","value":"\n$96113b15-b6e8-492f-a4b3-5672b0d87fa7\u0012$09f83682-02f9-4745-ad32-b2622ccd0bba\u001a$09f83682-02f9-4745-ad32-b2622ccd0bba \u0003"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:55.362+0500","caller":"order_consumer/handler.go:57","message":"handler end"}
+ PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-04-28T23:32:29.975+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-04-28T23:32:29.975+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 66.024µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:32:29.975+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 29.236µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:32:29.975+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 134.1µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:32:29.975+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 67.131µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:32:29.976+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 192.963µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:32:29.976+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-04-28T23:32:43.775+0500","caller":"app/app.go:169","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-04-28T23:32:43.777+0500","caller":"app/app.go:37","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-04-28T23:32:43.778+0500","caller":"order_consumer/consumer.go:32","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-04-28T23:32:44.027+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:32:44.027+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:32:44.530+0500","caller":"order_consumer/consumer.go:33","message":"Kafka consumer group rebalancing..."}
+{"level":"INFO","timestamp":"2026-04-28T23:32:44.540+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-492fa908-0f41-441b-a22b-3439254786b1","claims":{"order.assembled":[1]}}
+{"level":"INFO","timestamp":"2026-04-28T23:32:44.540+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-3f70dd58-c177-48aa-8bdf-e7cb58107c4f","claims":{"order.assembled":[0]}}
+{"level":"INFO","timestamp":"2026-04-28T23:33:09.577+0500","caller":"app/app.go:93","message":"🚀 gRPC InventoryService server listening on localhost:50051"}
+{"level":"INFO","timestamp":"2026-04-28T23:33:28.302+0500","caller":"app/app.go:92","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-04-28T23:37:27.730+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"4d7ead40-2e86-490f-bb87-e308bc984691","order_uuid":"ad3eabed-6de2-4af8-98e7-d23c2ef8cd7b","user_uuid":"ad3eabed-6de2-4af8-98e7-d23c2ef8cd7b","payment_method":4}
+{"level":"INFO","timestamp":"2026-04-28T23:37:27.753+0500","caller":"order_producer/producer.go:28","message":"Message sent","topic":"order.paid","partition":0,"offset":0,"key":"ad3eabed-6de2-4af8-98e7-d23c2ef8cd7b","value":"\n$581894ae-6653-46ad-b93d-bf3946771351\u0012$ad3eabed-6de2-4af8-98e7-d23c2ef8cd7b\u001a$ad3eabed-6de2-4af8-98e7-d23c2ef8cd7b\"\u000einvestor-money*$4d7ead40-2e86-490f-bb87-e308bc984691"}
+{"level":"INFO","timestamp":"2026-04-28T23:37:27.761+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"message received","member_id":"sarama-684856b7-7633-44bf-b649-935397f3dfe9","key":"ad3eabed-6de2-4af8-98e7-d23c2ef8cd7b","partition":0,"offset":0}
+{"level":"INFO","timestamp":"2026-04-28T23:37:27.762+0500","caller":"consumer/groupHandler.go:66","message":"Kafka msg received","topic":"order.paid"}
+{"level":"INFO","timestamp":"2026-04-28T23:37:27.762+0500","caller":"order_consumer/handler.go:15","message":"handler start"}
+{"level":"INFO","timestamp":"2026-04-28T23:37:27.765+0500","caller":"order_consumer/handler.go:23","message":"Processing message","topic":"order.paid","partition":0,"offset":0,"order_uuid":"ad3eabed-6de2-4af8-98e7-d23c2ef8cd7b","event_uuid":"581894ae-6653-46ad-b93d-bf3946771351","payment_method":"investor-money","transaction_uuid":"4d7ead40-2e86-490f-bb87-e308bc984691"}
+{"level":"INFO","timestamp":"2026-04-28T23:37:27.770+0500","caller":"order_producer/producer.go:27","message":"Message sent","topic":"order.assembled","partition":1,"offset":0,"key":"581894ae-6653-46ad-b93d-bf3946771351","value":"\n$581894ae-6653-46ad-b93d-bf3946771351\u0012$ad3eabed-6de2-4af8-98e7-d23c2ef8cd7b\u001a$ad3eabed-6de2-4af8-98e7-d23c2ef8cd7b \t"}
+{"level":"INFO","timestamp":"2026-04-28T23:37:27.770+0500","caller":"order_consumer/handler.go:57","message":"handler end"}
+{"level":"INFO","timestamp":"2026-04-28T23:37:27.771+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"message received","member_id":"sarama-492fa908-0f41-441b-a22b-3439254786b1","key":"581894ae-6653-46ad-b93d-bf3946771351","partition":1,"offset":0}
+{"level":"INFO","timestamp":"2026-04-28T23:37:27.771+0500","caller":"consumer/groupHandler.go:66","message":"Kafka msg received","topic":"order.assembled"}
+{"level":"INFO","timestamp":"2026-04-28T23:37:27.771+0500","caller":"order_consumer/handler.go:21","message":"Processing message","topic":"order.assembled","partition":1,"offset":0,"order_uuid":"ad3eabed-6de2-4af8-98e7-d23c2ef8cd7b","event_uuid":"581894ae-6653-46ad-b93d-bf3946771351","user_uuid":"ad3eabed-6de2-4af8-98e7-d23c2ef8cd7b","build_time_sec":9}
+{"level":"INFO","timestamp":"2026-04-28T23:39:03.205+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"69f2344a-89f3-45a6-8982-ac6d70906158","order_uuid":"09f83682-02f9-4745-ad32-b2622ccd0bba","user_uuid":"09f83682-02f9-4745-ad32-b2622ccd0bba","payment_method":4}
+{"level":"INFO","timestamp":"2026-04-28T23:39:03.209+0500","caller":"order_producer/producer.go:28","message":"Message sent","topic":"order.paid","partition":1,"offset":0,"key":"09f83682-02f9-4745-ad32-b2622ccd0bba","value":"\n$103a0ea7-54ce-4889-b98f-a17dcb9ebfe6\u0012$09f83682-02f9-4745-ad32-b2622ccd0bba\u001a$09f83682-02f9-4745-ad32-b2622ccd0bba\"\u000einvestor-money*$69f2344a-89f3-45a6-8982-ac6d70906158"}
+{"level":"INFO","timestamp":"2026-04-28T23:39:03.216+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"message received","member_id":"sarama-492fa908-0f41-441b-a22b-3439254786b1","key":"103a0ea7-54ce-4889-b98f-a17dcb9ebfe6","partition":1,"offset":1}
+{"level":"INFO","timestamp":"2026-04-28T23:39:03.216+0500","caller":"consumer/groupHandler.go:66","message":"Kafka msg received","topic":"order.assembled"}
+{"level":"INFO","timestamp":"2026-04-28T23:39:03.216+0500","caller":"order_consumer/handler.go:21","message":"Processing message","topic":"order.assembled","partition":1,"offset":1,"order_uuid":"09f83682-02f9-4745-ad32-b2622ccd0bba","event_uuid":"103a0ea7-54ce-4889-b98f-a17dcb9ebfe6","user_uuid":"09f83682-02f9-4745-ad32-b2622ccd0bba","build_time_sec":1}
+{"level":"INFO","timestamp":"2026-04-28T23:39:45.988+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"f4358e00-7e2d-4061-bf9f-81b85f57d36c","order_uuid":"ade8f84d-ce44-407a-bf61-d9c27551de57","user_uuid":"ade8f84d-ce44-407a-bf61-d9c27551de57","payment_method":4}
+{"level":"INFO","timestamp":"2026-04-28T23:39:45.992+0500","caller":"order_producer/producer.go:28","message":"Message sent","topic":"order.paid","partition":1,"offset":1,"key":"ade8f84d-ce44-407a-bf61-d9c27551de57","value":"\n$39423fa1-014d-41b7-bd58-020f5556b6a3\u0012$ade8f84d-ce44-407a-bf61-d9c27551de57\u001a$ade8f84d-ce44-407a-bf61-d9c27551de57\"\u000einvestor-money*$f4358e00-7e2d-4061-bf9f-81b85f57d36c"}
+{"level":"INFO","timestamp":"2026-04-28T23:39:45.995+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"message received","member_id":"sarama-492fa908-0f41-441b-a22b-3439254786b1","key":"39423fa1-014d-41b7-bd58-020f5556b6a3","partition":1,"offset":2}
+{"level":"INFO","timestamp":"2026-04-28T23:39:45.995+0500","caller":"consumer/groupHandler.go:66","message":"Kafka msg received","topic":"order.assembled"}
+{"level":"INFO","timestamp":"2026-04-28T23:39:45.995+0500","caller":"order_consumer/handler.go:21","message":"Processing message","topic":"order.assembled","partition":1,"offset":2,"order_uuid":"ade8f84d-ce44-407a-bf61-d9c27551de57","event_uuid":"39423fa1-014d-41b7-bd58-020f5556b6a3","user_uuid":"ade8f84d-ce44-407a-bf61-d9c27551de57","build_time_sec":5}
+{"level":"INFO","timestamp":"2026-04-28T23:44:42.675+0500","caller":"app/app.go:70","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:42.675+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:42.675+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:42.675+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:42.675+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:42.675+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:42.675+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:42.675+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:42.676+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:42.676+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 519.897µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:42.676+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 728.759µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:42.676+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 1.12008ms"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:42.676+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 1.194407ms"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:42.676+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 1.269503ms"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:42.675+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"ERROR","timestamp":"2026-04-28T23:44:42.838+0500","caller":"order_consumer/consumer.go:34","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:42.889+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 213.984253ms"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:42.889+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:45.346+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:45.548+0500","caller":"app/app.go:169","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:45.555+0500","caller":"app/app.go:37","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:45.555+0500","caller":"app/app.go:84","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:45.557+0500","caller":"order_consumer/consumer.go:32","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:45.847+0500","caller":"order_consumer/consumer.go:33","message":"Kafka consumer group rebalancing..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:45.872+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-9be206ea-a2d5-45cf-b01d-f94ab2f949e4","claims":{"order.assembled":[1]}}
+{"level":"INFO","timestamp":"2026-04-28T23:44:45.873+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-492fa908-0f41-441b-a22b-3439254786b1","claims":{"order.assembled":[0]}}
+{"level":"INFO","timestamp":"2026-04-28T23:44:47.170+0500","caller":"app/app.go:70","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:47.170+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:47.170+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:47.170+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:47.170+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:47.170+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:47.170+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:47.170+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:47.170+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 182.924µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:47.170+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:47.171+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 237.226µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:47.171+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 375.819µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:47.170+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:47.171+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 464.958µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:47.171+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 509.146µs"}
+{"level":"ERROR","timestamp":"2026-04-28T23:44:47.482+0500","caller":"order_consumer/consumer.go:34","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:47.484+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 314.506122ms"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:47.485+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:48.688+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:48.688+0500","caller":"app/app.go:70","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:48.688+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:48.688+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:48.688+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:48.688+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:48.688+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:48.688+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:48.688+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:48.688+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-04-28T23:44:48.688+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 150.365µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:48.688+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 105.02µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:48.688+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 148.141µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:48.688+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 188.086µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:48.688+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 262.499µs"}
+{"level":"ERROR","timestamp":"2026-04-28T23:44:48.985+0500","caller":"order_consumer/consumer.go:34","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:48.999+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 311.504389ms"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:49.001+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:59.591+0500","caller":"app/app.go:169","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:59.593+0500","caller":"app/app.go:84","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:59.593+0500","caller":"app/app.go:37","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:59.596+0500","caller":"order_consumer/consumer.go:32","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-04-28T23:44:59.605+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-4b7bd6cf-c851-4411-a154-97b8037990fb","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-04-28T23:45:14.549+0500","caller":"app/app.go:169","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:14.551+0500","caller":"app/app.go:37","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:14.553+0500","caller":"order_consumer/consumer.go:32","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:14.794+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:14.794+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:15.295+0500","caller":"order_consumer/consumer.go:33","message":"Kafka consumer group rebalancing..."}
+{"level":"INFO","timestamp":"2026-04-28T23:45:15.313+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-1792a1f6-bdba-4457-898a-e39912323a21","claims":{"order.assembled":[0]}}
+{"level":"INFO","timestamp":"2026-04-28T23:45:15.314+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-4b7bd6cf-c851-4411-a154-97b8037990fb","claims":{"order.assembled":[1]}}
+{"level":"INFO","timestamp":"2026-04-28T23:45:38.334+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"3cf18198-69fd-4226-bc5f-5e6c1a88d6d8","order_uuid":"ade8f84d-ce44-407a-bf61-d9c27551de57","user_uuid":"ade8f84d-ce44-407a-bf61-d9c27551de57","payment_method":4}
+{"level":"INFO","timestamp":"2026-04-28T23:45:38.349+0500","caller":"order_producer/producer.go:28","message":"Message sent","topic":"order.paid","partition":1,"offset":2,"key":"ade8f84d-ce44-407a-bf61-d9c27551de57","value":"\n$8cf8b230-58f7-49d3-933d-670cb1700424\u0012$ade8f84d-ce44-407a-bf61-d9c27551de57\u001a$ade8f84d-ce44-407a-bf61-d9c27551de57\"\u000einvestor-money*$3cf18198-69fd-4226-bc5f-5e6c1a88d6d8"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:38.356+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"message received","member_id":"sarama-1792a1f6-bdba-4457-898a-e39912323a21","key":"8cf8b230-58f7-49d3-933d-670cb1700424","partition":0,"offset":0}
+{"level":"INFO","timestamp":"2026-04-28T23:45:38.356+0500","caller":"consumer/groupHandler.go:66","message":"Kafka msg received","topic":"order.assembled"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:38.356+0500","caller":"order_consumer/handler.go:21","message":"Processing message","topic":"order.assembled","partition":0,"offset":0,"order_uuid":"ade8f84d-ce44-407a-bf61-d9c27551de57","event_uuid":"8cf8b230-58f7-49d3-933d-670cb1700424","user_uuid":"ade8f84d-ce44-407a-bf61-d9c27551de57","build_time_sec":2}
+{"level":"INFO","timestamp":"2026-04-28T23:45:55.356+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"c21ca131-0665-4c26-8aa9-99c0c2bab450","order_uuid":"09f83682-02f9-4745-ad32-b2622ccd0bba","user_uuid":"09f83682-02f9-4745-ad32-b2622ccd0bba","payment_method":4}
+{"level":"INFO","timestamp":"2026-04-28T23:45:55.360+0500","caller":"order_producer/producer.go:28","message":"Message sent","topic":"order.paid","partition":1,"offset":3,"key":"09f83682-02f9-4745-ad32-b2622ccd0bba","value":"\n$96113b15-b6e8-492f-a4b3-5672b0d87fa7\u0012$09f83682-02f9-4745-ad32-b2622ccd0bba\u001a$09f83682-02f9-4745-ad32-b2622ccd0bba\"\u000einvestor-money*$c21ca131-0665-4c26-8aa9-99c0c2bab450"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:55.362+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"message received","member_id":"sarama-1792a1f6-bdba-4457-898a-e39912323a21","key":"96113b15-b6e8-492f-a4b3-5672b0d87fa7","partition":0,"offset":1}
+{"level":"INFO","timestamp":"2026-04-28T23:45:55.363+0500","caller":"consumer/groupHandler.go:66","message":"Kafka msg received","topic":"order.assembled"}
+{"level":"INFO","timestamp":"2026-04-28T23:45:55.363+0500","caller":"order_consumer/handler.go:21","message":"Processing message","topic":"order.assembled","partition":0,"offset":1,"order_uuid":"09f83682-02f9-4745-ad32-b2622ccd0bba","event_uuid":"96113b15-b6e8-492f-a4b3-5672b0d87fa7","user_uuid":"09f83682-02f9-4745-ad32-b2622ccd0bba","build_time_sec":3}
+{"level":"INFO","timestamp":"2026-04-28T23:55:15.958+0500","caller":"app/app.go:169","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-04-28T23:55:15.960+0500","caller":"app/app.go:84","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-04-28T23:55:15.960+0500","caller":"app/app.go:37","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-04-28T23:55:15.961+0500","caller":"order_consumer/consumer.go:32","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-04-28T23:55:15.966+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-8d850c55-ab81-4b9a-8db2-e4c906686937","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-04-28T23:55:23.659+0500","caller":"app/app.go:169","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-04-28T23:55:23.660+0500","caller":"app/app.go:37","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-04-28T23:55:23.661+0500","caller":"order_consumer/consumer.go:32","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-04-28T23:55:25.107+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:55:25.107+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:55:25.607+0500","caller":"order_consumer/consumer.go:33","message":"Kafka consumer group rebalancing..."}
+{"level":"INFO","timestamp":"2026-04-28T23:55:25.610+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-8d850c55-ab81-4b9a-8db2-e4c906686937","claims":{"order.assembled":[0]}}
+{"level":"INFO","timestamp":"2026-04-28T23:55:25.610+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-f2ab731f-e2fe-49b5-9c7a-af897d6eb7d6","claims":{"order.assembled":[1]}}
+{"level":"INFO","timestamp":"2026-04-28T23:55:59.311+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"e04a80f0-2cfa-4039-baf1-c3b8ada6fdd7","order_uuid":"da617d76-c14f-4641-b658-707d7b941652","user_uuid":"da617d76-c14f-4641-b658-707d7b941652","payment_method":4}
+{"level":"INFO","timestamp":"2026-04-28T23:55:59.319+0500","caller":"order_producer/producer.go:28","message":"Message sent","topic":"order.paid","partition":1,"offset":0,"key":"da617d76-c14f-4641-b658-707d7b941652","value":"\n$427abb09-1e27-40c6-88f0-f95ad8dca246\u0012$da617d76-c14f-4641-b658-707d7b941652\u001a$da617d76-c14f-4641-b658-707d7b941652\"\u000einvestor-money*$e04a80f0-2cfa-4039-baf1-c3b8ada6fdd7"}
+{"level":"INFO","timestamp":"2026-04-28T23:56:20.407+0500","caller":"app/app.go:90","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-04-28T23:56:20.410+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-04-28T23:56:20.414+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-f6f0f292-e54f-4ff7-84f4-703ce4afe9e0","claims":{"order.paid":[0,1]}}
+{"level":"INFO","timestamp":"2026-04-28T23:56:20.520+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"message received","member_id":"sarama-f6f0f292-e54f-4ff7-84f4-703ce4afe9e0","key":"da617d76-c14f-4641-b658-707d7b941652","partition":1,"offset":0}
+{"level":"INFO","timestamp":"2026-04-28T23:56:20.520+0500","caller":"consumer/groupHandler.go:66","message":"Kafka msg received","topic":"order.paid"}
+{"level":"INFO","timestamp":"2026-04-28T23:56:20.520+0500","caller":"order_consumer/handler.go:15","message":"handler start"}
+{"level":"INFO","timestamp":"2026-04-28T23:56:20.521+0500","caller":"order_consumer/handler.go:23","message":"Processing message","topic":"order.paid","partition":1,"offset":0,"order_uuid":"da617d76-c14f-4641-b658-707d7b941652","event_uuid":"427abb09-1e27-40c6-88f0-f95ad8dca246","payment_method":"investor-money","transaction_uuid":"e04a80f0-2cfa-4039-baf1-c3b8ada6fdd7"}
+{"level":"INFO","timestamp":"2026-04-28T23:56:20.526+0500","caller":"order_producer/producer.go:27","message":"Message sent","topic":"order.assembled","partition":1,"offset":0,"key":"427abb09-1e27-40c6-88f0-f95ad8dca246","value":"\n$427abb09-1e27-40c6-88f0-f95ad8dca246\u0012$da617d76-c14f-4641-b658-707d7b941652\u001a$da617d76-c14f-4641-b658-707d7b941652 \u0005"}
+{"level":"INFO","timestamp":"2026-04-28T23:56:20.526+0500","caller":"order_consumer/handler.go:57","message":"handler end"}
+{"level":"INFO","timestamp":"2026-04-28T23:56:20.526+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"message received","member_id":"sarama-f2ab731f-e2fe-49b5-9c7a-af897d6eb7d6","key":"427abb09-1e27-40c6-88f0-f95ad8dca246","partition":1,"offset":0}
+{"level":"INFO","timestamp":"2026-04-28T23:56:20.526+0500","caller":"consumer/groupHandler.go:66","message":"Kafka msg received","topic":"order.assembled"}
+{"level":"INFO","timestamp":"2026-04-28T23:56:20.526+0500","caller":"order_consumer/handler.go:21","message":"Processing message","topic":"order.assembled","partition":1,"offset":0,"order_uuid":"da617d76-c14f-4641-b658-707d7b941652","event_uuid":"427abb09-1e27-40c6-88f0-f95ad8dca246","user_uuid":"da617d76-c14f-4641-b658-707d7b941652","build_time_sec":5}
+{"level":"INFO","timestamp":"2026-04-28T23:56:22.547+0500","caller":"app/app.go:90","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-04-28T23:56:22.550+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-04-28T23:56:23.533+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:56:23.533+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:56:24.033+0500","caller":"order_consumer/consumer.go:33","message":"Kafka consumer group rebalancing..."}
+{"level":"INFO","timestamp":"2026-04-28T23:56:24.037+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-f6f0f292-e54f-4ff7-84f4-703ce4afe9e0","claims":{"order.paid":[1]}}
+{"level":"INFO","timestamp":"2026-04-28T23:56:24.038+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-8ccc39f8-5029-4f0e-b89d-e291f670dec5","claims":{"order.paid":[0]}}
+{"level":"INFO","timestamp":"2026-04-28T23:57:24.840+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:57:25.343+0500","caller":"order_consumer/consumer.go:33","message":"Kafka consumer group rebalancing..."}
+{"level":"INFO","timestamp":"2026-04-28T23:57:25.351+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-8ccc39f8-5029-4f0e-b89d-e291f670dec5","claims":{"order.paid":[0,1]}}
+{"level":"INFO","timestamp":"2026-04-28T23:57:26.131+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"0b55f823-ff0e-44e4-81cc-79ee9dd37392","order_uuid":"7cba6ea8-f8a6-48fd-8d4c-8a05bdecce08","user_uuid":"7cba6ea8-f8a6-48fd-8d4c-8a05bdecce08","payment_method":4}
+{"level":"INFO","timestamp":"2026-04-28T23:57:26.137+0500","caller":"order_producer/producer.go:28","message":"Message sent","topic":"order.paid","partition":0,"offset":0,"key":"7cba6ea8-f8a6-48fd-8d4c-8a05bdecce08","value":"\n$e3aa1eff-0027-47a5-b4b2-b8b813354a09\u0012$7cba6ea8-f8a6-48fd-8d4c-8a05bdecce08\u001a$7cba6ea8-f8a6-48fd-8d4c-8a05bdecce08\"\u000einvestor-money*$0b55f823-ff0e-44e4-81cc-79ee9dd37392"}
+{"level":"INFO","timestamp":"2026-04-28T23:57:26.138+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"message received","member_id":"sarama-8ccc39f8-5029-4f0e-b89d-e291f670dec5","key":"7cba6ea8-f8a6-48fd-8d4c-8a05bdecce08","partition":0,"offset":0}
+{"level":"INFO","timestamp":"2026-04-28T23:57:26.138+0500","caller":"consumer/groupHandler.go:66","message":"Kafka msg received","topic":"order.paid"}
+{"level":"INFO","timestamp":"2026-04-28T23:57:26.138+0500","caller":"order_consumer/handler.go:15","message":"handler start"}
+{"level":"INFO","timestamp":"2026-04-28T23:57:26.138+0500","caller":"order_consumer/handler.go:23","message":"Processing message","topic":"order.paid","partition":0,"offset":0,"order_uuid":"7cba6ea8-f8a6-48fd-8d4c-8a05bdecce08","event_uuid":"e3aa1eff-0027-47a5-b4b2-b8b813354a09","payment_method":"investor-money","transaction_uuid":"0b55f823-ff0e-44e4-81cc-79ee9dd37392"}
+{"level":"ERROR","timestamp":"2026-04-28T23:57:26.248+0500","caller":"order_producer/producer.go:27","message":"Failed to send message","error":"kafka server: Request was for a topic or partition that does not exist on this broker"}
+{"level":"ERROR","timestamp":"2026-04-28T23:57:26.248+0500","caller":"order_producer/producer.go:28","message":"failed to publish order assembled","error":"kafka server: Request was for a topic or partition that does not exist on this broker"}
+{"level":"ERROR","timestamp":"2026-04-28T23:57:26.248+0500","caller":"order_consumer/handler.go:51","message":"Failed to produce ship assembled event","ship_assembled":{"EventUUID":"e3aa1eff-0027-47a5-b4b2-b8b813354a09","OrderUUID":"7cba6ea8-f8a6-48fd-8d4c-8a05bdecce08","UserUUID":"7cba6ea8-f8a6-48fd-8d4c-8a05bdecce08","BuildTimeSec":10},"error":"kafka server: Request was for a topic or partition that does not exist on this broker"}
+{"level":"INFO","timestamp":"2026-04-28T23:57:26.248+0500","caller":"order_consumer/handler.go:55","message":"handler end"}
+{"level":"ERROR","timestamp":"2026-04-28T23:57:26.248+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka handler error","error":"kafka server: Request was for a topic or partition that does not exist on this broker"}
+{"level":"INFO","timestamp":"2026-04-28T23:57:56.429+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:57:56.932+0500","caller":"order_consumer/consumer.go:33","message":"Kafka consumer group rebalancing..."}
+{"level":"INFO","timestamp":"2026-04-28T23:57:56.940+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-8d850c55-ab81-4b9a-8db2-e4c906686937","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.449+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.449+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.450+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.449+0500","caller":"app/app.go:70","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.450+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.450+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.450+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.450+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.450+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.450+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.450+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 295.174µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.450+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.450+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 639.865µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.451+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 920.392µs"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.451+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 1.491857ms"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.452+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 1.6987ms"}
+{"level":"ERROR","timestamp":"2026-04-28T23:58:01.576+0500","caller":"order_consumer/consumer.go:34","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.581+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 130.776435ms"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:01.581+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:17.348+0500","caller":"app/app.go:169","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:17.350+0500","caller":"app/app.go:37","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:17.352+0500","caller":"order_consumer/consumer.go:32","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:17.358+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-7dd89900-5072-446f-a692-25484152ba9c","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-04-28T23:58:29.941+0500","caller":"app/app.go:169","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:29.943+0500","caller":"app/app.go:84","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:29.943+0500","caller":"app/app.go:37","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:29.944+0500","caller":"order_consumer/consumer.go:32","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:32.516+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:32.516+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:33.018+0500","caller":"order_consumer/consumer.go:33","message":"Kafka consumer group rebalancing..."}
+{"level":"INFO","timestamp":"2026-04-28T23:58:33.025+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-88421a75-e3fd-4b9a-96de-ea83032028bb","claims":{"order.assembled":[1]}}
+{"level":"INFO","timestamp":"2026-04-28T23:58:33.025+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-7dd89900-5072-446f-a692-25484152ba9c","claims":{"order.assembled":[0]}}
+{"level":"INFO","timestamp":"2026-04-28T23:58:39.876+0500","caller":"app/app.go:34","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:39.876+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-04-28T23:58:39.876+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-04-28T23:58:39.876+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:39.876+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:39.876+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-04-28T23:58:39.876+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-04-28T23:58:39.877+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 237.566µs"}
+{"level":"ERROR","timestamp":"2026-04-28T23:58:39.950+0500","caller":"order_consumer/consumer.go:35","message":"Failed to start order consumer service","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:39.952+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 75.42832ms"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:39.952+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:48.293+0500","caller":"app/app.go:90","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:48.296+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:48.300+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-6177bfd9-9b8c-47d4-9e8d-2e6f44779038","claims":{"order.paid":[0,1]}}
+{"level":"INFO","timestamp":"2026-04-28T23:58:48.405+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"message received","member_id":"sarama-6177bfd9-9b8c-47d4-9e8d-2e6f44779038","key":"7cba6ea8-f8a6-48fd-8d4c-8a05bdecce08","partition":0,"offset":0}
+{"level":"INFO","timestamp":"2026-04-28T23:58:48.405+0500","caller":"consumer/groupHandler.go:66","message":"Kafka msg received","topic":"order.paid"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:48.405+0500","caller":"order_consumer/handler.go:15","message":"handler start"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:48.406+0500","caller":"order_consumer/handler.go:23","message":"Processing message","topic":"order.paid","partition":0,"offset":0,"order_uuid":"7cba6ea8-f8a6-48fd-8d4c-8a05bdecce08","event_uuid":"e3aa1eff-0027-47a5-b4b2-b8b813354a09","payment_method":"investor-money","transaction_uuid":"0b55f823-ff0e-44e4-81cc-79ee9dd37392"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:48.411+0500","caller":"order_producer/producer.go:27","message":"Message sent","topic":"order.assembled","partition":1,"offset":0,"key":"e3aa1eff-0027-47a5-b4b2-b8b813354a09","value":"\n$e3aa1eff-0027-47a5-b4b2-b8b813354a09\u0012$7cba6ea8-f8a6-48fd-8d4c-8a05bdecce08\u001a$7cba6ea8-f8a6-48fd-8d4c-8a05bdecce08 \n"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:48.411+0500","caller":"order_consumer/handler.go:57","message":"handler end"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:48.411+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"message received","member_id":"sarama-88421a75-e3fd-4b9a-96de-ea83032028bb","key":"e3aa1eff-0027-47a5-b4b2-b8b813354a09","partition":1,"offset":0}
+{"level":"INFO","timestamp":"2026-04-28T23:58:48.411+0500","caller":"consumer/groupHandler.go:66","message":"Kafka msg received","topic":"order.assembled"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:48.412+0500","caller":"order_consumer/handler.go:21","message":"Processing message","topic":"order.assembled","partition":1,"offset":0,"order_uuid":"7cba6ea8-f8a6-48fd-8d4c-8a05bdecce08","event_uuid":"e3aa1eff-0027-47a5-b4b2-b8b813354a09","user_uuid":"7cba6ea8-f8a6-48fd-8d4c-8a05bdecce08","build_time_sec":10}
+{"level":"INFO","timestamp":"2026-04-28T23:58:56.035+0500","caller":"app/app.go:90","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:56.038+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:57.436+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:57.437+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:58:57.938+0500","caller":"order_consumer/consumer.go:33","message":"Kafka consumer group rebalancing..."}
+{"level":"INFO","timestamp":"2026-04-28T23:58:57.944+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-6177bfd9-9b8c-47d4-9e8d-2e6f44779038","claims":{"order.paid":[0]}}
+{"level":"INFO","timestamp":"2026-04-28T23:58:57.944+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-bda03b35-2818-4ba1-aca6-5a0af1dfc7dc","claims":{"order.paid":[1]}}
+{"level":"INFO","timestamp":"2026-04-28T23:59:24.807+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:59:25.308+0500","caller":"order_consumer/consumer.go:33","message":"Kafka consumer group rebalancing..."}
+{"level":"INFO","timestamp":"2026-04-28T23:59:25.314+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-7dd89900-5072-446f-a692-25484152ba9c","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-04-28T23:59:30.985+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-28T23:59:31.486+0500","caller":"order_consumer/consumer.go:33","message":"Kafka consumer group rebalancing..."}
+{"level":"INFO","timestamp":"2026-04-28T23:59:31.495+0500","caller":"sarama@v1.48.0/consumer_group.go:869","message":"New session","member_id":"sarama-bda03b35-2818-4ba1-aca6-5a0af1dfc7dc","claims":{"order.paid":[0,1]}}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.540+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.540+0500","caller":"app/app.go:70","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.540+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.540+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.540+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.541+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.541+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.541+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.541+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.541+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.541+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 184.196µs"}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.541+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.541+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 225.642µs"}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.541+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 159.31µs"}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.541+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 225.432µs"}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.541+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 410.776µs"}
+{"level":"ERROR","timestamp":"2026-04-29T00:00:14.594+0500","caller":"order_consumer/consumer.go:34","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.596+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 55.435409ms"}
+{"level":"INFO","timestamp":"2026-04-29T00:00:14.596+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-04-29T00:00:35.981+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-04-29T00:00:35.981+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-29T00:00:35.981+0500","caller":"sarama@v1.48.0/consumer_group.go:969","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-04-29T00:00:35.981+0500","caller":"app/app.go:34","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-04-29T00:00:35.981+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-04-29T00:00:35.981+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-04-29T00:00:35.981+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-04-29T00:00:35.982+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 200.109µs"}
+{"level":"ERROR","timestamp":"2026-04-29T00:00:36.345+0500","caller":"order_consumer/consumer.go:35","message":"Failed to start order consumer service","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-04-29T00:00:36.349+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 367.74309ms"}
+{"level":"INFO","timestamp":"2026-04-29T00:00:36.349+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-04-29T00:01:08.975+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"c74d1cb5-ffc7-44ce-bb46-3df6cd6660ea","order_uuid":"6a2ba254-6972-454c-a05e-34ac3ffd1c63","user_uuid":"6a2ba254-6972-454c-a05e-34ac3ffd1c63","payment_method":4}
+{"level":"INFO","timestamp":"2026-04-29T00:02:08.328+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"c0936a99-11e1-4337-89de-548d1161eb2d","order_uuid":"e9c6b442-f8aa-42ba-b3fa-e7c5646bf620","user_uuid":"e9c6b442-f8aa-42ba-b3fa-e7c5646bf620","payment_method":4}
+{"level":"INFO","timestamp":"2026-04-29T00:03:03.902+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"5133c017-47d2-44b8-93ad-4129217418f0","order_uuid":"e79b467c-50ac-4f31-bd3c-7ac139cf0647","user_uuid":"e79b467c-50ac-4f31-bd3c-7ac139cf0647","payment_method":4}
