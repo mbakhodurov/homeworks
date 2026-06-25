@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package events.v1;
+
+option go_package = "github.com/mbakhodurov/homeworks/week7/shared/pkg/proto/events/v1;events_v1";
+
+message OrderPaid{
+    string event_uuid = 1;
+    string order_uuid = 2;  
+    string user_uuid = 3; 
+    string payment_method = 4;
+    string transaction_uuid = 5;
+}
+
+// Событие о готовности космического корабля (собран)
+message ShipAssembled {
+  string event_uuid = 1;  // Уникальный идентификатор события
+  string order_uuid = 2;  // Идентификатор собранного заказа
+  string user_uuid = 3; // Идентификатор пользователя
+  int64 build_time_sec = 4; // Время (в секундах), потраченное на сборку корабля
+}

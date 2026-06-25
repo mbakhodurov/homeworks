@@ -1,0 +1,309 @@
+version: '3'
+
+vars:
+  BUF_VERSION: '1.53.0'
+  PROTOC_GEN_GO_VERSION: 'v1.36.6'
+  PROTOC_GEN_GO_GRPC_VERSION: 'v1.5.1'
+  PROTOC_GEN_GRPC_GATEWAY_VERSION: 'v2.26.3'
+  PROTOC_GEN_VALIDATE_VERSION: 'v1.2.1'
+  MOCKERY_VERSION: 'v2.53.3'
+  OGEN_VERSION: 'v1.12.0'
+  YQ_VERSION: 'v4.45.2'
+  ENVSUBST_VERSION: 'v1.4.3'
+
+  BIN_DIR: '{{.ROOT_DIR}}/bin'
+  BUF: '{{.BIN_DIR}}/buf'
+  OGEN: '{{.BIN_DIR}}/ogen'
+  YQ: '{{.BIN_DIR}}/yq'
+  PROTOC_GEN_GO: '{{.BIN_DIR}}/protoc-gen-go'
+  PROTOC_GEN_GO_GRPC: '{{.BIN_DIR}}/protoc-gen-go-grpc'
+  PROTOC_GEN_GRPC_GATEWAY: '{{.BIN_DIR}}/protoc-gen-grpc-gateway'
+  PROTOC_GEN_VALIDATE: '{{.BIN_DIR}}/protoc-gen-validate'
+  MOCKERY: "{{.BIN_DIR}}/mockery"
+  ENVSUBST: '{{.BIN_DIR}}/envsubst'
+  ENVDIR: '{{.ROOT_DIR}}/deploy/env'
+
+  NODE_MODULES_DIR: '{{.ROOT_DIR}}/node_modules/.bin'
+  REDOCLY: '{{.NODE_MODULES_DIR}}/redocly'
+
+  OPEN_API_ORDER_V1_BASE: '{{.ROOT_DIR}}/shared/api/order/v1/order.openapi.yaml'
+  OPEN_API_ORDER_V1_BUNDLE: '{{.ROOT_DIR}}/shared/api/bundles/order.openapi.v1.bundle.yaml'
+
+  OPEN_API_FILES: '{{.ROOT_DIR}}/shared/api/bundles'
+  ORDER_MIGRATIONS_DIR: './order/migrations'
+  POSTGRES_DSN: 'postgres://order-service-user:order-service-password@localhost:5432/order-service?sslmode=disable'
+
+  MODULES: assembly inventory order payment platform iam notification
+  SERVICES: core,assembly,inventory,order,payment,iam,notification,observability
+
+tasks:
+  install-buf:
+    desc: "Устанавливает Buf в каталог bin"
+    run: once 
+    cmds:
+      - |
+        mkdir -p {{.BIN_DIR}}
+        [ -f {{.BUF}} ] || {
+          echo '📦 Устанавливаем buf {{.BUF_VERSION}}...'
+          GOBIN={{.BIN_DIR}} go install github.com/bufbuild/buf/cmd/buf@v{{.BUF_VERSION}}
+        }
+    status:
+      - test -x {{.BUF}}
+  
+  proto:install-plugins:
+    desc: "Устанавливает protoc плагины в каталог bin"
+    run: once 
+    cmds:
+      - |
+        [ -f {{.PROTOC_GEN_GO}} ] || {
+          echo '📦 Installing protoc-gen-go...'
+          GOBIN={{.BIN_DIR}} go install google.golang.org/protobuf/cmd/protoc-gen-go@{{.PROTOC_GEN_GO_VERSION}}
+        }
+        [ -f {{.PROTOC_GEN_GO_GRPC}} ] || {
+          echo '📦 Installing protoc-gen-go-grpc...'
+          GOBIN={{.BIN_DIR}} go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@{{.PROTOC_GEN_GO_GRPC_VERSION}}
+        }
+        [ -f {{.PROTOC_GEN_GRPC_GATEWAY}} ] || {
+          echo '📦 Installing protoc-gen-grpc-gateway...'
+          GOBIN={{.BIN_DIR}} go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@{{.PROTOC_GEN_GRPC_GATEWAY_VERSION}}
+        }
+        [ -f {{.PROTOC_GEN_VALIDATE}} ] || {
+          echo '📦 Installing protoc-gen-validate...'
+          GOBIN={{.BIN_DIR}} go install github.com/envoyproxy/protoc-gen-validate@{{.PROTOC_GEN_VALIDATE_VERSION}}
+        }
+
+  proto:update-deps:
+    deps: [ install-buf ]
+    desc: Обновляет зависимости protobuf из удаленных репозиториев (googleapis и т.д.)
+    dir: shared/proto
+    cmds:
+      - |
+        echo "🔄 Обновляем зависимости buf..."
+        {{.BUF}} dep update
+
+  proto:lint:
+    deps: [ install-buf, proto:install-plugins, proto:update-deps ]
+    desc: Проверка .proto-файлов на соответствие стилю;
+    dir: shared/proto
+    cmds:
+      - |
+        echo "🔍 Проверяем .proto файлы..."
+        {{.BUF}} lint
+
+  proto:gen:
+    deps: [ install-buf, proto:install-plugins, proto:update-deps, proto:lint ]
+    desc: Генерация Go-кода из .proto
+    dir: shared/proto
+    cmds:
+      - |
+        echo "🏗️ Генерируем Go код из .proto..."
+        {{.BUF}} generate
+  
+  redocly-cli:install:
+    desc: Установить локально Redocly CLI
+    cmds:
+      - |
+        if [ ! -f {{.REDOCLY}} ]; then
+          echo "📦 Installing redocly cli..."
+          npm install --no-save @redocly/cli
+        fi
+
+  redocly-cli:order-v1-bundle:
+    desc: Собрать OpenAPI в один файл через локальный redocly
+    deps: [ redocly-cli:install ]
+    cmds:
+      - '{{.REDOCLY}} bundle {{.OPEN_API_ORDER_V1_BASE}} -o {{.OPEN_API_ORDER_V1_BUNDLE}}'
+
+  redocly-cli:bundle:
+    desc: Собрать все схемы OpenAPI в общие файлы через локальный redocly
+    deps: [ redocly-cli:install ]
+    cmds:
+      - task: redocly-cli:order-v1-bundle
+
+  ogen:install:
+    desc: "Скачивает ogen в папку bin"
+    cmds:
+      - |
+        [ -f {{.OGEN}} ] || {
+          mkdir -p {{.BIN_DIR}}
+          GOBIN={{.BIN_DIR}} go install github.com/ogen-go/ogen/cmd/ogen@{{.OGEN_VERSION}}
+        }
+
+  yq:install:
+    desc: "Устанавливает yq в bin/ при необходимости"
+    cmds:
+      - |
+        [ -f {{.YQ}} ] || {
+          echo '📦 Installing yq...'
+          GOBIN={{.BIN_DIR}} go install github.com/mikefarah/yq/v4@{{.YQ_VERSION}}
+        }
+
+  ogen:gen:
+    desc: "Генерация Go-кода из всех OpenAPI-деклараций с x-ogen"
+    deps: [ ogen:install, yq:install ]
+    cmds:
+      - task: redocly-cli:bundle
+      - |
+        find {{.OPEN_API_FILES}} -name '*.yaml' -o -name '*.yml' | while read -r file; do
+          if [ -f "$file" ] && grep -q 'x-ogen:' "$file"; then
+            echo "🚀 Generating from: $file"
+            target=$({{.YQ}} e '."x-ogen".target' "$file")
+            package=$({{.YQ}} e '."x-ogen".package' "$file")
+            echo "📁 Target: $target"
+            echo "📦 Package: $package"
+            {{.OGEN}} \
+              --target "$target" \
+              --package "$package" \
+              --clean \
+              "$file" || exit 1
+          fi
+        done
+
+  gen:
+    desc: "Генерирует код из всех спецификаций (proto + OpenAPI)"
+    cmds:
+      - task: proto:gen
+      - task: ogen:gen
+
+  mockery:install:
+    desc: "Устанавливает mockery в ./bin"
+    cmds:
+      - |
+        [ -f {{.MOCKERY}} ] || {
+          echo '📦 Installing mockery...'
+          GOBIN={{.BIN_DIR}} go install github.com/vektra/mockery/v2@{{.MOCKERY_VERSION}}
+        }
+    status:
+      - test -x {{.MOCKERY}}
+
+  mockery:gen:
+    desc: "Генерирует моки интерфейсов с помощью mockery"
+    deps: [ mockery:install ]
+    cmds:
+      - |
+        echo '🧪 Генерация моков...'
+        {{.MOCKERY}}
+
+  up-core:
+    desc: Поднять core контейнеры
+    dir: deploy/compose/core
+    cmds:
+      - echo "[task] 🚀 Поднимаем core контейнеры"
+      - docker compose up --build --detach
+
+  down-core:
+    desc:  Остановить и удалить core контейнеры
+    dir: deploy/compose/core
+    cmds:
+      - echo "[task] 🛑 Останавливаем core контейнеры"
+      - docker compose down --volumes
+
+  up-inventory:
+    desc: Поднять Inventory сервис и все его зависимости
+    dir: deploy/compose/inventory
+    cmds:
+      - echo "[task] 📦 Поднимаем Inventory с зависимостями"
+      - docker compose up --build --detach
+
+  down-inventory:
+    desc: Остановить и удалить Inventory сервис и все его зависимости
+    dir: deploy/compose/inventory
+    cmds:
+      - echo "[task] 🛑 Останавливаем Inventory с зависимостями"
+      - docker compose down --volumes
+
+  up-order:
+    desc: Поднять Order сервис и все его зависимости
+    dir: deploy/compose/order
+    cmds:
+      - echo "[task] 📦 Поднимаем Order с зависимостями"
+      - docker compose up --build --detach
+
+  down-order:
+    desc: Остановить и удалить Order сервис и все его зависимости
+    dir: deploy/compose/order
+    cmds:
+      - echo "[task] 🛑 Останавливаем Inventory с зависимостями"
+      - docker compose down --volumes
+
+  up-iam:
+    desc: Поднять IAM сервис и все его зависимости
+    dir: deploy/compose/iam
+    cmds:
+      - echo "[task] 🔐 Поднимаем IAM с зависимостями"
+      - docker compose up --build --detach
+
+  down-order:
+    desc: Остановить и удалить IAM сервис и все его зависимости
+    dir: deploy/compose/iam
+    cmds:
+      - echo "[task] 🛑 Останавливаем IAM с зависимостями"
+      - docker compose down --volumes
+
+  up-observability:
+    desc: Поднять стек observability (Elasticsearch, Kibana, OTel Collector)
+    dir: deploy/compose/observability
+    cmds:
+      - echo "[task] 📊 Поднимаем observability стек"
+      - docker compose up --build --detach
+
+  down-observability:
+    desc: Остановить и удалить стек observability
+    dir: deploy/compose/observability
+    cmds:
+      - echo "[task] 🛑 Останавливаем observability стек"
+      - docker compose down --volumes
+
+  up-all:
+    desc: Поднять все сервисы по очереди вместе с зависимостями
+    cmds:
+      - task: up-observability
+      - task: up-core
+      - task: up-inventory
+      - task: up-order
+      - task: up-iam
+
+  down-all:
+    desc: Остановить и удалить все сервисы по очереди вместе с зависимостями
+    cmds:
+      - task: down-core
+      - task: down-inventory
+      - task: down-order
+      - task: down-iam
+      - task: down-observability
+  
+  env:install-envsubst:
+    desc: "Устанавливает envsubst в bin/"
+    cmds:
+      - |
+        [ -f {{.ENVSUBST}} ] || {
+          echo "📦 Устанавливаем envsubst версии {{.ENVSUBST_VERSION}}..."
+          GOBIN={{.BIN_DIR}} go install github.com/a8m/envsubst/cmd/envsubst@{{.ENVSUBST_VERSION}}
+        }
+        echo "✅ envsubst установлен: {{.ENVSUBST}}"
+
+  env:generate:
+    desc: "Генерирует .env файлы для всех сервисов из шаблонов и единого файла конфигурации"
+    deps: [ env:install-envsubst ]
+    cmds:
+      - |
+        ENV_FILE="{{.ENVDIR}}/.env"
+        TEMPLATE_FILE="{{.ENVDIR}}/.env.template"
+        SCRIPT="{{.ENVDIR}}/generate-env.sh"
+        
+        if [ ! -f "$ENV_FILE" ]; then
+          if [ -f "$TEMPLATE_FILE" ]; then
+            echo "🔄 Файл $ENV_FILE не найден, создаем из шаблона $TEMPLATE_FILE"
+            cp "$TEMPLATE_FILE" "$ENV_FILE"
+            echo "✅ Создан файл $ENV_FILE. Проверьте и отредактируйте значения переменных при необходимости."
+          else
+            echo "❌ Шаблон $TEMPLATE_FILE не найден!"
+            exit 1
+          fi
+        fi
+        
+        chmod +x "$SCRIPT"
+        # Передаем список сервисов в виде строки с разделителями-запятыми
+        export SERVICES="{{.SERVICES}}"
+        ENV_SUBST={{.ENVSUBST}} "$SCRIPT"
+      

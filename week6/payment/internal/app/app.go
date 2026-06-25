@@ -38,20 +38,22 @@ func (a *App) Run(ctx context.Context) error {
 	return a.runGRPCServer(ctx)
 }
 
-func (a *App) initDi(ctx context.Context) error {
-	a.di = NewDiContainer()
-	return nil
-}
+func (a *App) initDeps(ctx context.Context) error {
+	inits := []func(context.Context) error{
+		a.initDi,
+		a.initLogger,
+		a.initCloser,
+		a.initListeners,
+		a.initGrpcServer,
+	}
 
-func (a *App) initLogger(ctx context.Context) error {
-	return logger.Init(
-		config.AppConfig().Logger.Level(),
-		config.AppConfig().Logger.AsJson(),
-	)
-}
+	for _, f := range inits {
+		err := f(ctx)
+		if err != nil {
+			return err
+		}
+	}
 
-func (a *App) initCloser(ctx context.Context) error {
-	closer.SetLogger(logger.Logger())
 	return nil
 }
 
@@ -71,6 +73,23 @@ func (a *App) initListeners(ctx context.Context) error {
 	})
 
 	a.listener = listener
+	return nil
+}
+
+func (a *App) initDi(ctx context.Context) error {
+	a.di = NewDiContainer()
+	return nil
+}
+
+func (a *App) initLogger(ctx context.Context) error {
+	return logger.Init(
+		config.AppConfig().Logger.Level(),
+		config.AppConfig().Logger.AsJson(),
+	)
+}
+
+func (a *App) initCloser(ctx context.Context) error {
+	closer.SetLogger(logger.Logger())
 	return nil
 }
 
@@ -102,25 +121,6 @@ func (a *App) runGRPCServer(ctx context.Context) error {
 	err := a.grpcServer.Serve(a.listener)
 	if err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (a *App) initDeps(ctx context.Context) error {
-	inits := []func(context.Context) error{
-		a.initDi,
-		a.initLogger,
-		a.initCloser,
-		a.initListeners,
-		a.initGrpcServer,
-	}
-
-	for _, f := range inits {
-		err := f(ctx)
-		if err != nil {
-			return err
-		}
 	}
 
 	return nil

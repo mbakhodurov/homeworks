@@ -1,0 +1,22 @@
+{"level":"INFO","timestamp":"2026-06-12T22:35:00.647+0500","caller":"app/app.go:124","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-06-13T05:44:43.073+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"b4c6471f-d65e-4dcb-8b44-7b5d769eb4fd","order_uuid":"f9bc5b64-31c4-43dd-88c6-3b9815b2cf04","user_uuid":"Duis nulla dolore pariatur","payment_method":0}
+{"level":"INFO","timestamp":"2026-06-13T05:54:25.669+0500","caller":"logger/logger.go:282","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-06-13T05:54:25.674+0500","caller":"logger/logger.go:282","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-06-13T05:54:25.678+0500","caller":"logger/logger.go:282","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-06-13T05:54:25.680+0500","caller":"logger/logger.go:282","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-06-13T05:54:25.680+0500","caller":"logger/logger.go:282","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"INFO","timestamp":"2026-06-13T05:54:25.681+0500","caller":"logger/logger.go:282","message":"✅ TCP listener успешно закрыт за 5.106299ms"}
+{"level":"INFO","timestamp":"2026-06-13T05:54:25.688+0500","caller":"logger/logger.go:282","message":"✅ IAM gRPC connection успешно закрыт за 12.682266ms"}
+{"level":"INFO","timestamp":"2026-06-13T05:54:25.713+0500","caller":"logger/logger.go:282","message":"✅ gRPC server успешно закрыт за 38.288404ms"}
+{"level":"INFO","timestamp":"2026-06-13T05:54:25.714+0500","caller":"logger/logger.go:282","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-06-13T05:54:27.582+0500","caller":"logger/logger.go:282","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-06-13T05:54:27.587+0500","caller":"logger/logger.go:282","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-06-13T05:54:27.590+0500","caller":"logger/logger.go:282","message":"🧩 Закрываем Redis pool..."}
+{"level":"INFO","timestamp":"2026-06-13T05:54:27.590+0500","caller":"logger/logger.go:282","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-06-13T05:54:27.591+0500","caller":"logger/logger.go:282","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-06-13T05:54:27.592+0500","caller":"logger/logger.go:282","message":"✅ TCP listener успешно закрыт за 3.171003ms"}
+{"level":"INFO","timestamp":"2026-06-13T05:54:27.592+0500","caller":"logger/logger.go:282","message":"✅ Redis pool успешно закрыт за 2.924511ms"}
+{"level":"INFO","timestamp":"2026-06-13T05:54:27.590+0500","caller":"logger/logger.go:282","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-06-13T05:54:27.594+0500","caller":"logger/logger.go:282","message":"✅ PostgresSQL connection успешно закрыт за 5.832918ms"}
+{"level":"INFO","timestamp":"2026-06-13T05:54:27.613+0500","caller":"logger/logger.go:282","message":"✅ gRPC server успешно закрыт за 25.067476ms"}
+{"level":"INFO","timestamp":"2026-06-13T05:54:27.613+0500","caller":"logger/logger.go:282","message":"✅ Все ресурсы успешно закрыты"}

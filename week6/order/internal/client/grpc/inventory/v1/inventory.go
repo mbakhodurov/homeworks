@@ -13,7 +13,6 @@ import (
 func (c *Client) ListPartInventory(ctx context.Context, filter model.InventoryFilter) ([]model.Inventory, error) {
 	// Добавляем session UUID в gRPC metadata для передачи в Inventory сервис
 	ctx = grpcAuth.ForwardSessionUUIDToGRPC(ctx)
-
 	// Для отладки:
 	if uuid, ok := grpcAuth.GetSessionUUIDFromContext(ctx); ok {
 		fmt.Println("Session UUID:", uuid)

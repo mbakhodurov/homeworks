@@ -174,6 +174,11 @@ func (di *diContainer) OrderProducer(ctx context.Context) wrappedKafka.Producer 
 
 func (di *diContainer) SyncProducer(ctx context.Context) sarama.SyncProducer {
 	if di.syncProducer == nil {
+		// configs := sarama.NewConfig()
+		// configs.Producer.RequiredAcks = sarama.WaitForAll
+		// configs.Producer.Retry.Max = 5
+		// configs.Producer.Return.Successes = true
+
 		p, err := sarama.NewSyncProducer(
 			config.ApppConfig().Kafka.Brokers(),
 			config.ApppConfig().OrderPaidProducerConfig.Config(),

@@ -1,0 +1,30 @@
+package decoder
+
+import (
+	"fmt"
+
+	"github.com/mbakhodurov/homeworks/week7/notification/internal/model"
+	events_v1 "github.com/mbakhodurov/homeworks/week7/shared/pkg/proto/events/v1"
+	"google.golang.org/protobuf/proto"
+)
+
+type orderPaidDecoder struct{}
+
+func NewOrderPaidDecoder() *orderPaidDecoder {
+	return &orderPaidDecoder{}
+}
+
+func (d *orderPaidDecoder) Decode(data []byte) (model.OrderPaid, error) {
+	var pb events_v1.OrderPaid
+	if err := proto.Unmarshal(data, &pb); err != nil {
+		return model.OrderPaid{}, fmt.Errorf("failed to unmarshal protobuf: %w", err)
+	}
+
+	return model.OrderPaid{
+		EventUUID:       pb.EventUuid,
+		OrderUUID:       pb.OrderUuid,
+		UserUUID:        pb.UserUuid,
+		PaymentMethod:   pb.PaymentMethod,
+		TransactionUUID: pb.TransactionUuid,
+	}, nil
+}

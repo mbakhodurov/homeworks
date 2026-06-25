@@ -79,7 +79,8 @@ func (a *App) initListener(ctx context.Context) error {
 func (a *App) initGrpcServer(ctx context.Context) error {
 	// a.grpcServer = grpc.NewServer(grpc.Creds(insecure.NewCredentials()))
 	authInterceptor := grpcMiddleware.NewAuthInterceptor(a.diContainer.IAMClient(ctx))
-
+	// str, _ := grpcMiddleware.GetSessionUUIDFromContext(ctx)
+	// fmt.Println("str:", str)
 	a.grpcServer = grpc.NewServer(
 		grpc.Creds(insecure.NewCredentials()),
 		grpc.ChainUnaryInterceptor(

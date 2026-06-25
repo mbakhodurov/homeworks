@@ -1,0 +1,23 @@
+{"level":"INFO","timestamp":"2026-05-20T06:13:49.403+0500","caller":"app/app.go:103","message":"🚀 gRPC InventoryService server listening on localhost:50051"}
+{"level":"ERROR","timestamp":"2026-05-20T06:18:02.479+0500","caller":"inventory/getByUUID.go:14","message":"failed to get inventory","uuid":"a5a15981-0469-429d-b3cb-6085041c6e9b","inventory-->GetByUUID":"","error":"inventory not found"}
+{"level":"ERROR","timestamp":"2026-05-20T06:18:14.144+0500","caller":"inventory/create.go:17","message":"failed to create inventory","uuid":"b70a300c-295a-46b9-a649-527224383d15","inventory-->Create":"","error":"inventory already exists: write exception: write errors: [E11000 duplicate key error collection: inventory.inventories index: inventoryinfo.name_1 dup key: { inventoryinfo.name: \"fdas\" }]"}
+{"level":"INFO","timestamp":"2026-05-20T06:20:16.804+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-20T06:20:16.805+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-20T06:20:16.805+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-20T06:20:16.805+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем MongoDB client..."}
+{"level":"INFO","timestamp":"2026-05-20T06:20:16.805+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-20T06:20:16.805+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 461.64µs"}
+{"level":"INFO","timestamp":"2026-05-20T06:20:16.806+0500","caller":"closer/closer.go:171","message":"✅ MongoDB client успешно закрыт за 1.53221ms"}
+{"level":"INFO","timestamp":"2026-05-20T06:20:16.809+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 4.301864ms"}
+{"level":"INFO","timestamp":"2026-05-20T06:20:16.809+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-20T06:50:57.188+0500","caller":"app/app.go:120","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-05-20T06:50:58.739+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-20T06:50:58.739+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-20T06:50:58.739+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-20T06:50:58.739+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-20T06:50:58.739+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 229.769µs"}
+{"level":"INFO","timestamp":"2026-05-20T06:50:58.739+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 234.107µs"}
+{"level":"INFO","timestamp":"2026-05-20T06:50:58.739+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-20T06:51:12.627+0500","caller":"app/app.go:120","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-05-20T06:51:44.414+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"4cf2fe13-7515-4baa-9a37-55fc8beef986","order_uuid":"f9bc5b64-31c4-43dd-88c6-3b9815b2cf04","user_uuid":"Duis nulla dolore pariatur","payment_method":0}
+{"level":"INFO","timestamp":"2026-05-20T06:51:47.903+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"a6310bf3-4bba-46d2-b021-9023067ac5c2","order_uuid":"f9bc5b64-31c4-43dd-88c6-3b9815b2cf04","user_uuid":"Duis nulla dolore pariatur","payment_method":0}

@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package user.v1;
+
+import "common/v1/user.proto";
+
+option go_package = "github.com/mbakhodurov/homeworks/week7/shared/pkg/proto/user/v1;user_v1";
+
+service UserService {
+    rpc Register(RegisterRequest) returns (RegisterResponse);
+    rpc GetUser(GetUserRequest) returns (GetUserResponse);
+    rpc GetAllUser(GetAllUserRequest) returns (GetAllUserResponse);
+}
+
+message GetAllUserRequest {}
+
+message GetAllUserResponse {
+    repeated common.v1.User users = 1;
+    int64 total_count = 2;
+}
+
+message RegisterRequest{
+    common.v1.UserInfo info = 1;
+    string password = 2;
+}
+
+message RegisterResponse {
+  string user_uuid = 1; // UUID созданного пользователя
+}
+
+message GetUserRequest {
+  string user_uuid = 1; // UUID созданного пользователя
+}
+
+message GetUserResponse {
+  common.v1.User user = 1; // Пользователь
+}

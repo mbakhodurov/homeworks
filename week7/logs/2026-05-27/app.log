@@ -1,0 +1,607 @@
+{"level":"INFO","timestamp":"2026-05-27T15:16:50.647+0500","caller":"app/app.go:95","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T15:16:50.649+0500","caller":"app/app.go:65","message":"🔴 Redis initialized"}
+{"level":"INFO","timestamp":"2026-05-27T15:16:50.650+0500","caller":"app/app.go:135","message":"🚀 gRPC IAMService server listening on localhost:50053"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:28.089+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T15:49:28.092+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T15:49:28.094+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T15:49:28.094+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T15:49:28.094+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Redis pool..."}
+{"level":"INFO","timestamp":"2026-05-27T15:49:28.094+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T15:49:28.095+0500","caller":"closer/closer.go:171","message":"✅ Redis pool успешно закрыт за 1.252737ms"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:28.095+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 1.274867ms"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:28.096+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 2.647032ms"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:28.104+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 10.718024ms"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:28.104+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+026-05-27T15:49:24.559+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:24.564+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T15:49:24.564+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-05-27T15:49:24.564+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-05-27T15:49:24.565+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 2.040617ms"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:24.565+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 3.184488ms"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:24.566+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 3.57208ms"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:24.567+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 4.785621ms"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:24.568+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 5.677971ms"}
+{"level":"ERROR","timestamp":"2026-05-27T15:49:24.824+0500","caller":"order_consumer/consumer.go:33","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:24.865+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 302.870342ms"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:24.865+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:28.068+0500","caller":"app/app.go:179","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:28.079+0500","caller":"app/app.go:88","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:28.079+0500","caller":"app/app.go:41","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:28.086+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:28.114+0500","caller":"sarama@v1.49.0/consumer_group.go:894","message":"New session","member_id":"sarama-45a2110a-975c-49e7-935b-84eb995625bf","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-05-27T15:49:29.774+0500","caller":"app/app.go:95","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:29.774+0500","caller":"app/app.go:65","message":"🔴 Redis initialized"}
+{"level":"INFO","timestamp":"2026-05-27T15:49:29.775+0500","caller":"app/app.go:135","message":"🚀 gRPC IAMService server listening on localhost:50053"}
+{"level":"INFO","timestamp":"2026-05-27T15:56:02.280+0500","caller":"app/app.go:105","message":"🚀 gRPC InventoryService server listening on localhost:50051"}
+{"level":"ERROR","timestamp":"2026-05-27T15:58:21.577+0500","caller":"order/create.go:30","message":"Ошибка с работой с InventoryClient","error":"rpc error: code = Unauthenticated desc = missing session-uuid in metadata"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:17.297+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:17.297+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:17.297+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем MongoDB client..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:17.297+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:17.298+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:17.298+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:17.298+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 227.889µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:17.298+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 436.3µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:17.298+0500","caller":"closer/closer.go:171","message":"✅ MongoDB client успешно закрыт за 890.466µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:17.310+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 12.037356ms"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:17.310+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:19.927+0500","caller":"app/app.go:105","message":"🚀 gRPC InventoryService server listening on localhost:50051"}
+{"level":"ERROR","timestamp":"2026-05-27T16:04:24.423+0500","caller":"order/create.go:30","message":"Ошибка с работой с InventoryClient","error":"rpc error: code = Unauthenticated desc = missing session-uuid in metadata"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:28.506+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:28.506+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:28.506+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:28.506+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:28.506+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Redis pool..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:28.506+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:28.506+0500","caller":"closer/closer.go:171","message":"✅ Redis pool успешно закрыт за 144.369µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:28.506+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 180.789µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:28.506+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 302.031µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:28.517+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 11.344525ms"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:28.518+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.394+0500","caller":"app/app.go:74","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.394+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.394+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.394+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.394+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.394+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.394+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.394+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.394+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.394+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.394+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.395+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 217.046µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.395+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 270.114µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.395+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 268.629µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.395+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 560.681µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.395+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 663.055µs"}
+{"level":"ERROR","timestamp":"2026-05-27T16:04:30.776+0500","caller":"order_consumer/consumer.go:33","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.784+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 389.576401ms"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:30.784+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:31.528+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:31.528+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:31.528+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:31.528+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем MongoDB client..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:31.529+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:31.528+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T16:04:31.529+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 1.023745ms"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:31.530+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 1.295738ms"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:31.530+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 1.211526ms"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:31.531+0500","caller":"closer/closer.go:171","message":"✅ MongoDB client успешно закрыт за 2.544944ms"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:31.531+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:34.463+0500","caller":"app/app.go:95","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:34.463+0500","caller":"app/app.go:65","message":"🔴 Redis initialized"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:34.464+0500","caller":"app/app.go:135","message":"🚀 gRPC IAMService server listening on localhost:50053"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:37.507+0500","caller":"app/app.go:179","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:37.510+0500","caller":"app/app.go:88","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:37.510+0500","caller":"app/app.go:41","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:37.513+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-05-27T16:04:37.528+0500","caller":"sarama@v1.49.0/consumer_group.go:894","message":"New session","member_id":"sarama-591f39dd-87de-4794-a2ad-cb0654fe82d7","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-05-27T16:04:39.484+0500","caller":"app/app.go:105","message":"🚀 gRPC InventoryService server listening on localhost:50051"}
+{"level":"INFO","timestamp":"2026-05-27T16:18:58.777+0500","caller":"app/app.go:120","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-05-27T16:19:09.191+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"08aaee75-bea2-4147-a9e2-200e3dc67381","order_uuid":"f9bc5b64-31c4-43dd-88c6-3b9815b2cf04","user_uuid":"Duis nulla dolore pariatur","payment_method":0}
+{"level":"INFO","timestamp":"2026-05-27T16:19:17.108+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T16:19:17.108+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T16:19:17.108+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем MongoDB client..."}
+{"level":"INFO","timestamp":"2026-05-27T16:19:17.108+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T16:19:17.108+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T16:19:17.108+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T16:19:17.108+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 244.902µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:19:17.109+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 770.153µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:19:17.109+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 1.03236ms"}
+{"level":"INFO","timestamp":"2026-05-27T16:19:17.109+0500","caller":"closer/closer.go:171","message":"✅ MongoDB client успешно закрыт за 1.392887ms"}
+{"level":"INFO","timestamp":"2026-05-27T16:19:17.109+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T16:19:18.199+0500","caller":"app/app.go:105","message":"🚀 gRPC InventoryService server listening on localhost:50051"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.811+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.811+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.811+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.811+0500","caller":"app/app.go:74","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.811+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.811+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.811+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.811+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.811+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.811+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.811+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.811+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 298.204µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.811+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 449.127µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.811+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 340.036µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.811+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 545.836µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.812+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 603.415µs"}
+{"level":"ERROR","timestamp":"2026-05-27T16:21:41.822+0500","caller":"order_consumer/consumer.go:33","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.827+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 15.613019ms"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:41.827+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:44.443+0500","caller":"app/app.go:179","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:44.450+0500","caller":"app/app.go:41","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:44.450+0500","caller":"app/app.go:88","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:44.456+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:44.480+0500","caller":"sarama@v1.49.0/consumer_group.go:894","message":"New session","member_id":"sarama-15bb22c4-1ce9-4ffb-a64d-c757a6b7406f","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.155+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.155+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.155+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.155+0500","caller":"app/app.go:74","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.155+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.155+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.155+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.155+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.155+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.155+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 127.272µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.155+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.155+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.155+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 205.287µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.155+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 160.71µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.156+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 199.188µs"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.156+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 370.026µs"}
+{"level":"ERROR","timestamp":"2026-05-27T16:21:58.644+0500","caller":"order_consumer/consumer.go:33","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.648+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 493.272825ms"}
+{"level":"INFO","timestamp":"2026-05-27T16:21:58.649+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T16:22:00.442+0500","caller":"app/app.go:179","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T16:22:00.446+0500","caller":"app/app.go:88","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-05-27T16:22:00.446+0500","caller":"app/app.go:41","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-05-27T16:22:00.448+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-05-27T16:22:00.460+0500","caller":"sarama@v1.49.0/consumer_group.go:894","message":"New session","member_id":"sarama-0051e0b1-b8c0-41ca-acf7-c451cd8c94f7","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-05-27T20:45:00.626+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:45:00.627+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:45:00.627+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T20:45:00.627+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:45:00.627+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем MongoDB client..."}
+{"level":"INFO","timestamp":"2026-05-27T20:45:00.627+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T20:45:00.628+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 775.453µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:45:00.628+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 881.188µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:45:00.628+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 860.452µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:45:00.630+0500","caller":"closer/closer.go:171","message":"✅ MongoDB client успешно закрыт за 3.433522ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:45:00.630+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T20:45:03.220+0500","caller":"app/app.go:105","message":"🚀 gRPC InventoryService server listening on localhost:50051"}
+{"level":"INFO","timestamp":"2026-05-27T20:47:46.559+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:47:46.565+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:47:46.569+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T20:47:46.569+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T20:47:46.570+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 2.955028ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:47:46.587+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 17.822456ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:47:46.587+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T20:47:48.309+0500","caller":"app/app.go:126","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:34.066+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"7829b547-732a-4474-b1fb-bb3e47bec75f","order_uuid":"f9bc5b64-31c4-43dd-88c6-3b9815b2cf04","user_uuid":"Duis nulla dolore pariatur","payment_method":0}
+{"level":"INFO","timestamp":"2026-05-27T20:48:40.947+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:40.946+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:40.946+0500","caller":"app/app.go:74","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:40.946+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:40.948+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:40.949+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:40.949+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:40.949+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:40.949+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:40.949+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:40.950+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:40.950+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 962.599µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:40.950+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 1.356181ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:40.951+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 1.803011ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:40.951+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 2.214976ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:40.954+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 5.061744ms"}
+{"level":"ERROR","timestamp":"2026-05-27T20:48:41.214+0500","caller":"order_consumer/consumer.go:33","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:41.245+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 295.98888ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:41.245+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:42.518+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:42.521+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:42.522+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:42.522+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:42.521+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:42.522+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 770.096µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:42.523+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Redis pool..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:42.523+0500","caller":"closer/closer.go:171","message":"✅ Redis pool успешно закрыт за 912.805µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:42.523+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 1.414237ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:42.524+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 2.841354ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:42.524+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:44.116+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:44.118+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:44.118+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:44.118+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:44.119+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:44.119+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 1.51993ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:44.118+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем MongoDB client..."}
+{"level":"INFO","timestamp":"2026-05-27T20:48:44.120+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 1.695422ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:44.120+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 1.8862ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:44.123+0500","caller":"closer/closer.go:171","message":"✅ MongoDB client успешно закрыт за 5.110368ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:44.123+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:48.358+0500","caller":"app/app.go:95","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:48.358+0500","caller":"app/app.go:65","message":"🔴 Redis initialized"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:48.359+0500","caller":"app/app.go:135","message":"🚀 gRPC IAMService server listening on localhost:50053"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:51.976+0500","caller":"app/app.go:179","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:51.981+0500","caller":"app/app.go:88","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:51.981+0500","caller":"app/app.go:41","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:51.984+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-05-27T20:48:52.023+0500","caller":"sarama@v1.49.0/consumer_group.go:894","message":"New session","member_id":"sarama-894649e9-c993-4770-bc5e-4bbf8d8b3a4e","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-05-27T20:48:52.179+0500","caller":"app/app.go:105","message":"🚀 gRPC InventoryService server listening on localhost:50051"}
+{"level":"INFO","timestamp":"2026-05-27T20:49:31.914+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:49:31.914+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:49:31.914+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T20:49:31.914+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"ERROR","timestamp":"2026-05-27T20:49:31.915+0500","caller":"cmd/main.go:39","message":"❌ Ошибка при работе приложения","error":"accept tcp 127.0.0.1:50052: use of closed network connection"}
+{"level":"INFO","timestamp":"2026-05-27T20:49:31.915+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 223.738µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:49:31.915+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T20:49:31.915+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 439.094µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:49:31.916+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 1.829148ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:49:31.916+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T20:49:33.834+0500","caller":"app/app.go:127","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:00.026+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:50:00.026+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:50:00.026+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T20:50:00.027+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:50:00.027+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T20:50:00.027+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 137.669µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:00.027+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 344.602µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:00.027+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 569.577µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:00.027+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:02.418+0500","caller":"app/app.go:127","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:04.653+0500","caller":"app/app.go:74","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:04.653+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:04.653+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:04.653+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:50:04.653+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:50:04.653+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-05-27T20:50:04.653+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:50:04.653+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:50:04.653+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-05-27T20:50:04.653+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 95.53µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:04.653+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-05-27T20:50:04.653+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 76.601µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:04.653+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:50:04.653+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 165.92µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:04.654+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 306.337µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:04.654+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 710.785µs"}
+{"level":"ERROR","timestamp":"2026-05-27T20:50:05.144+0500","caller":"order_consumer/consumer.go:33","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:05.147+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 493.942831ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:05.147+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:05.994+0500","caller":"app/app.go:179","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:06.000+0500","caller":"app/app.go:88","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:06.000+0500","caller":"app/app.go:41","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:06.003+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-05-27T20:50:06.018+0500","caller":"sarama@v1.49.0/consumer_group.go:894","message":"New session","member_id":"sarama-f548190b-8591-4400-a4c6-12fbf7d956ee","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-05-27T20:50:32.327+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"e4c56617-54e6-4221-bd28-af1324765ae8","order_uuid":"f9bc5b64-31c4-43dd-88c6-3b9815b2cf04","user_uuid":"Duis nulla dolore pariatur","payment_method":0}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.321+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.321+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.322+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.321+0500","caller":"app/app.go:74","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.321+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.322+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.322+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.322+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.322+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.322+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.322+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 231.333µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.322+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.322+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 166.608µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.323+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 925.831µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.323+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 805.456µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.324+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 1.932538ms"}
+{"level":"ERROR","timestamp":"2026-05-27T20:51:46.353+0500","caller":"order_consumer/consumer.go:33","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.359+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 36.851355ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:51:46.359+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T20:51:48.763+0500","caller":"app/app.go:179","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T20:51:48.769+0500","caller":"app/app.go:88","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-05-27T20:51:48.769+0500","caller":"app/app.go:41","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-05-27T20:51:48.776+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-05-27T20:51:48.804+0500","caller":"sarama@v1.49.0/consumer_group.go:894","message":"New session","member_id":"sarama-52aae14c-3007-45bf-ac09-d8ba32bb9405","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.170+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.170+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.170+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.170+0500","caller":"app/app.go:74","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.170+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.170+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.170+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.170+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.171+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.170+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.171+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.171+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 173.113µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.171+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 351.787µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.171+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 418.539µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.171+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 508.905µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.171+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 660.919µs"}
+{"level":"ERROR","timestamp":"2026-05-27T20:52:10.549+0500","caller":"order_consumer/consumer.go:33","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.552+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 381.665532ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:10.552+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:12.954+0500","caller":"app/app.go:179","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:12.958+0500","caller":"app/app.go:88","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:12.958+0500","caller":"app/app.go:41","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:12.962+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:12.980+0500","caller":"sarama@v1.49.0/consumer_group.go:894","message":"New session","member_id":"sarama-8907b30f-8bfd-42e0-82a2-e345abb83ca1","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-05-27T20:52:30.887+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:52:30.887+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:30.887+0500","caller":"app/app.go:74","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:30.887+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:30.887+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:52:30.887+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-05-27T20:52:30.887+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-05-27T20:52:30.887+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:52:30.887+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:52:30.887+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 213.338µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:30.887+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 273.992µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:30.887+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-05-27T20:52:30.888+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:52:30.888+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 335.975µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:30.888+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 301.688µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:30.888+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 216.512µs"}
+{"level":"ERROR","timestamp":"2026-05-27T20:52:31.167+0500","caller":"order_consumer/consumer.go:33","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:31.179+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 291.797987ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:31.179+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:33.299+0500","caller":"app/app.go:179","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:33.304+0500","caller":"app/app.go:41","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:33.304+0500","caller":"app/app.go:88","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:33.307+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-05-27T20:52:33.337+0500","caller":"sarama@v1.49.0/consumer_group.go:894","message":"New session","member_id":"sarama-28fba8d5-3c02-4a4e-91d0-183da9097a2b","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.031+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.031+0500","caller":"app/app.go:74","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.031+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.032+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.031+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.032+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.032+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.032+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.032+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.032+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 366.799µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.032+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.032+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 350.245µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.032+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.033+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 723.584µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.033+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 757.298µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.033+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 1.303886ms"}
+{"level":"ERROR","timestamp":"2026-05-27T20:57:29.212+0500","caller":"order_consumer/consumer.go:33","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.220+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 187.907007ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:57:29.220+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T20:57:31.879+0500","caller":"app/app.go:179","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T20:57:31.884+0500","caller":"app/app.go:41","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-05-27T20:57:31.884+0500","caller":"app/app.go:88","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-05-27T20:57:31.886+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-05-27T20:57:31.902+0500","caller":"sarama@v1.49.0/consumer_group.go:894","message":"New session","member_id":"sarama-8a03d61c-0c6a-4fa5-80e3-47e1153bdd50","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-05-27T20:57:33.923+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"01812aa2-af4e-4c5c-9da3-13ca5efe2fa5","order_uuid":"3cf8f3a0-0e4d-40d3-b494-e9782938d9e7","user_uuid":"3cf8f3a0-0e4d-40d3-b494-e9782938d9e7","payment_method":4}
+{"level":"INFO","timestamp":"2026-05-27T20:57:34.147+0500","caller":"order_producer/producer.go:28","message":"Message sent","topic":"order.paid","partition":0,"offset":7,"key":"3cf8f3a0-0e4d-40d3-b494-e9782938d9e7","value":"\n$a144f4a0-cb4d-42f9-bc99-0a5bd95aebc2\u0012$3cf8f3a0-0e4d-40d3-b494-e9782938d9e7\u001a$3cf8f3a0-0e4d-40d3-b494-e9782938d9e7\"\u000einvestor-money*$01812aa2-af4e-4c5c-9da3-13ca5efe2fa5"}
+{"level":"INFO","timestamp":"2026-05-27T20:58:13.920+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:58:13.921+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:58:13.921+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T20:58:13.921+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:58:13.921+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T20:58:13.922+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 726.955µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:58:13.922+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 1.308973ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:58:13.925+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 4.007056ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:58:13.925+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T20:58:15.809+0500","caller":"app/app.go:127","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:09.703+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:59:09.705+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:59:09.706+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T20:59:09.706+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:59:09.706+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T20:59:09.706+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 348.861µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:09.706+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 220.834µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:09.706+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 314.319µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:09.706+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:11.187+0500","caller":"app/app.go:121","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.313+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.313+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.314+0500","caller":"app/app.go:74","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.314+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.313+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.314+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.314+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.314+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.314+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.314+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.314+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 380.335µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.314+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 385.944µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.314+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.314+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.314+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 355.926µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.315+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 717.182µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.315+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 757.839µs"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.315+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 815.323µs"}
+{"level":"ERROR","timestamp":"2026-05-27T20:59:24.609+0500","caller":"order_consumer/consumer.go:33","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.614+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 299.930097ms"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:24.615+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:25.364+0500","caller":"app/app.go:179","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:25.369+0500","caller":"app/app.go:88","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:25.369+0500","caller":"app/app.go:41","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:25.373+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-05-27T20:59:25.386+0500","caller":"sarama@v1.49.0/consumer_group.go:894","message":"New session","member_id":"sarama-0e077ac7-3413-46a5-b2c9-bb702b1443d1","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-05-27T21:00:37.564+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:00:37.564+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:00:37.564+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T21:00:37.564+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T21:00:37.564+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 332.214µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:00:37.564+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 542.965µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:00:37.565+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T21:00:39.206+0500","caller":"app/app.go:122","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-05-27T21:01:00.440+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:01:00.440+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:01:00.440+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T21:01:00.441+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T21:01:00.441+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 158.691µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:01:00.441+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 263.703µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:01:00.441+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T21:01:01.509+0500","caller":"app/app.go:121","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-05-27T21:01:10.750+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"2629bf72-25da-4e44-9d02-0a073c1d3c0b","order_uuid":"f9bc5b64-31c4-43dd-88c6-3b9815b2cf04","user_uuid":"Duis nulla dolore pariatur","payment_method":0}
+{"level":"INFO","timestamp":"2026-05-27T21:01:20.472+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"81bac99e-07f9-4443-a045-0000c2bcfdc3","order_uuid":"f9bc5b64-31c4-43dd-88c6-3b9815b2cf04","user_uuid":"Duis nulla dolore pariatur","payment_method":0}
+{"level":"INFO","timestamp":"2026-05-27T21:01:50.801+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:01:50.802+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:01:50.802+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T21:01:50.802+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T21:01:50.802+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 165.672µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:01:50.804+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 2.115434ms"}
+{"level":"INFO","timestamp":"2026-05-27T21:01:50.804+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T21:01:52.545+0500","caller":"app/app.go:122","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-05-27T21:02:11.212+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:02:11.213+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:02:11.213+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T21:02:11.213+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T21:02:11.213+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 230.567µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:02:11.213+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:02:11.214+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 617.454µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:02:11.215+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 1.631629ms"}
+{"level":"INFO","timestamp":"2026-05-27T21:02:11.215+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T21:02:12.210+0500","caller":"app/app.go:121","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-05-27T21:02:16.387+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"aaa3253e-68f4-4a3b-bedc-2b1fa8288de2","order_uuid":"f9bc5b64-31c4-43dd-88c6-3b9815b2cf04","user_uuid":"Duis nulla dolore pariatur","payment_method":0}
+{"level":"INFO","timestamp":"2026-05-27T21:02:38.834+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:02:38.834+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:02:38.834+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T21:02:38.834+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T21:02:38.835+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 189.489µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:02:38.836+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 1.579463ms"}
+{"level":"INFO","timestamp":"2026-05-27T21:02:38.836+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T21:02:39.738+0500","caller":"app/app.go:122","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:10.896+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:04:10.896+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:04:10.896+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T21:04:10.897+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 319.284µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:10.896+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T21:04:10.897+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:04:10.897+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 362.601µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:10.897+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 396.237µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:10.897+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:12.095+0500","caller":"app/app.go:122","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.467+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.468+0500","caller":"app/app.go:74","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.468+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.468+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.468+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.468+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.468+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.468+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.468+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.468+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.468+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.468+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.469+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 457.009µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.469+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 233.83µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.469+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 443.46µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.469+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 394.934µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.469+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 791.11µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.470+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 1.39309ms"}
+{"level":"ERROR","timestamp":"2026-05-27T21:04:14.704+0500","caller":"order_consumer/consumer.go:33","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.717+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 248.581751ms"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:14.717+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:16.978+0500","caller":"app/app.go:179","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:16.983+0500","caller":"app/app.go:41","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:16.983+0500","caller":"app/app.go:88","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:16.987+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-05-27T21:04:17.002+0500","caller":"sarama@v1.49.0/consumer_group.go:894","message":"New session","member_id":"sarama-5af02eb5-07ba-4f93-a115-3db1aa73adf2","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-05-27T21:05:06.388+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:06.390+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:06.391+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:06.391+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:06.391+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем MongoDB client..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:06.391+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:06.392+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 1.217978ms"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:06.393+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 2.642072ms"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:06.394+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 3.457064ms"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:06.397+0500","caller":"closer/closer.go:171","message":"✅ MongoDB client успешно закрыт за 6.851963ms"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:06.397+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:08.235+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:08.235+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:08.244+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем TCP listener..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:08.244+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"ERROR","timestamp":"2026-05-27T21:05:08.244+0500","caller":"cmd/main.go:39","message":"❌ Ошибка при работе приложения","error":"accept tcp 127.0.0.1:50052: use of closed network connection"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:08.244+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем gRPC server..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:08.245+0500","caller":"closer/closer.go:171","message":"✅ gRPC server успешно закрыт за 1.048556ms"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:08.244+0500","caller":"closer/closer.go:171","message":"✅ TCP listener успешно закрыт за 300.471µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:08.245+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 1.149718ms"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:08.245+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:11.498+0500","caller":"app/app.go:105","message":"🚀 gRPC InventoryService server listening on localhost:50051"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:13.389+0500","caller":"app/app.go:122","message":"🚀 gRPC PaymentService server listening on localhost:50052"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.007+0500","caller":"app/app.go:74","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.007+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.008+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.007+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.008+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.008+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.007+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.008+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.008+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.008+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 261.509µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.008+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 275.328µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.008+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.008+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 329.415µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.008+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.008+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.008+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 555.786µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.008+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 529.199µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.009+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 1.207599ms"}
+{"level":"ERROR","timestamp":"2026-05-27T21:05:15.351+0500","caller":"order_consumer/consumer.go:33","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.353+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 345.132155ms"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:15.353+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:17.140+0500","caller":"app/app.go:179","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:17.144+0500","caller":"app/app.go:88","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:17.144+0500","caller":"app/app.go:41","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:17.148+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-05-27T21:05:17.161+0500","caller":"sarama@v1.49.0/consumer_group.go:894","message":"New session","member_id":"sarama-0080bece-df6b-4b2a-a4f3-474dd221284a","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.948+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.948+0500","caller":"app/app.go:74","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.948+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.948+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.947+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.948+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.949+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.949+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.949+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.949+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.949+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.949+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.949+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 354.153µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.949+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 430.806µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.949+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 513.139µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.949+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 832.601µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.949+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 718.962µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:07:15.950+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 1.701458ms"}
+{"level":"ERROR","timestamp":"2026-05-27T21:07:16.300+0500","caller":"order_consumer/consumer.go:33","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-05-27T21:07:16.306+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 357.039123ms"}
+{"level":"INFO","timestamp":"2026-05-27T21:07:16.306+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T21:07:17.153+0500","caller":"app/app.go:179","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T21:07:17.157+0500","caller":"app/app.go:88","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-05-27T21:07:17.157+0500","caller":"app/app.go:41","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-05-27T21:07:17.160+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-05-27T21:07:17.171+0500","caller":"sarama@v1.49.0/consumer_group.go:894","message":"New session","member_id":"sarama-75c508b2-9589-49dd-a6fb-b329d499d67a","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-05-27T21:08:23.996+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"39a94fce-ba83-46b5-9a76-4704562c878b","order_uuid":"f9bc5b64-31c4-43dd-88c6-3b9815b2cf04","user_uuid":"Duis nulla dolore pariatur","payment_method":0}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.098+0500","caller":"runtime/asm_amd64.s:1693","message":"🛑 Получен системный сигнал, начинаем graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.107+0500","caller":"sync/once.go:78","message":"🚦 Начинаем процесс graceful shutdown..."}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.108+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Inventory gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.108+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka sync producer..."}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.108+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Payment gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.099+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.108+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем PostgresSQL connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.099+0500","caller":"sarama@v1.49.0/consumer_group.go:1038","message":"Kafka session context done"}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.098+0500","caller":"app/app.go:74","message":"Shutdown signal received"}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.108+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем IAM gRPC connection..."}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.108+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем HTTP server..."}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.108+0500","caller":"closer/closer.go:171","message":"🧩 Закрываем Kafka consumer group..."}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.108+0500","caller":"closer/closer.go:171","message":"✅ Kafka sync producer успешно закрыт за 422.298µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.108+0500","caller":"closer/closer.go:171","message":"✅ PostgresSQL connection успешно закрыт за 415.329µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.108+0500","caller":"closer/closer.go:171","message":"✅ Inventory gRPC connection успешно закрыт за 842.319µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.109+0500","caller":"closer/closer.go:171","message":"✅ IAM gRPC connection успешно закрыт за 717.823µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.109+0500","caller":"closer/closer.go:171","message":"✅ Payment gRPC connection успешно закрыт за 929.776µs"}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.109+0500","caller":"closer/closer.go:171","message":"✅ HTTP server успешно закрыт за 856.047µs"}
+{"level":"ERROR","timestamp":"2026-05-27T21:09:58.357+0500","caller":"order_consumer/consumer.go:33","message":"Consume from order.assembled topic error","error":"context canceled"}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.360+0500","caller":"closer/closer.go:171","message":"✅ Kafka consumer group успешно закрыт за 251.834656ms"}
+{"level":"INFO","timestamp":"2026-05-27T21:09:58.360+0500","caller":"sync/once.go:78","message":"✅ Все ресурсы успешно закрыты"}
+{"level":"INFO","timestamp":"2026-05-27T21:10:00.705+0500","caller":"app/app.go:177","message":"🗄️ Database initialized and migrations applied"}
+{"level":"INFO","timestamp":"2026-05-27T21:10:00.708+0500","caller":"app/app.go:88","message":"🚀 HTTP OrderService server listening on localhost:8080"}
+{"level":"INFO","timestamp":"2026-05-27T21:10:00.708+0500","caller":"app/app.go:41","message":"🚀 Order Kafka consumer running"}
+{"level":"INFO","timestamp":"2026-05-27T21:10:00.711+0500","caller":"order_consumer/consumer.go:31","message":"Starting order consumer service"}
+{"level":"INFO","timestamp":"2026-05-27T21:10:00.724+0500","caller":"sarama@v1.49.0/consumer_group.go:894","message":"New session","member_id":"sarama-7f4bf666-240b-4757-abe1-4853968956c3","claims":{"order.assembled":[0,1]}}
+{"level":"INFO","timestamp":"2026-05-27T21:10:04.110+0500","caller":"payment/payment.go:15","message":"payment succeeded","transaction_uuid":"7a330eed-a33a-44fe-a0ee-65fa90742fe9","order_uuid":"5716741d-3c55-4c7c-8626-1cda2d58103b","user_uuid":"5716741d-3c55-4c7c-8626-1cda2d58103b","payment_method":4}
+{"level":"INFO","timestamp":"2026-05-27T21:10:04.120+0500","caller":"order_producer/producer.go:28","message":"Message sent","topic":"order.paid","partition":1,"offset":1,"key":"5716741d-3c55-4c7c-8626-1cda2d58103b","value":"\n$e312d30e-68cb-4551-910a-4a5c6d8f95e9\u0012$5716741d-3c55-4c7c-8626-1cda2d58103b\u001a$5716741d-3c55-4c7c-8626-1cda2d58103b\"\u000einvestor-money*$7a330eed-a33a-44fe-a0ee-65fa90742fe9"}

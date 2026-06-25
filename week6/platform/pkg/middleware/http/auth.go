@@ -2,7 +2,6 @@ package http
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 
 	grpcAuth "github.com/mbakhodurov/homeworks/week6/platform/pkg/middleware/grpc"
@@ -40,7 +39,6 @@ func (m *AuthMiddleware) Handle(next http.Handler) http.Handler {
 		})
 		if err != nil {
 			writeErrorResponse(w, http.StatusUnauthorized, "INVALID_SESSION", "Authentication failed")
-			fmt.Println(err)
 			return
 		}
 
